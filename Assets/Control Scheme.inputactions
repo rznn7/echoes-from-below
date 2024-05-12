@@ -1,0 +1,34 @@
+{
+    "name": "Control Scheme",
+    "maps": [
+        {
+            "name": "PlayerInput",
+            "id": "119c4bf4-dff6-4977-a59e-dab147c72bd8",
+            "actions": [
+                {
+                    "name": "testing",
+                    "type": "Value",
+                    "id": "99bc2f74-74ca-42a7-a5fa-a28f1afe93b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4aebdeaf-340d-4f52-96aa-05a5fbcef88f",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "testing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
