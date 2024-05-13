@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         playermovement = Player.GetComponent<PlayerMovement>();
         GlobalTimekeeper.inst.dotick.AddListener(tick);
-        timeout = 0.35f;
         startpos = this.transform.position;
         insight = false;
     }
