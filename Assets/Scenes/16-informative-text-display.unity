@@ -889,6 +889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopupMessagesDisplayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1862206694253273404, guid: 698bb122457036044b54540e9b3dd339, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6697887102574089015, guid: 698bb122457036044b54540e9b3dd339, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
