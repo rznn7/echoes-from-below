@@ -7,12 +7,14 @@ public class GameUIManager : MonoBehaviour
     public ValueToSprite oxygen;
     public ValueToSprite power;
     public MovePanelInterpreter moveControls;
+    public ParticleSystem[] bubbles;
     public static GameUIManager instance;
     public Button go;
 
     private void Start()
     {
         go.onClick.AddListener(GlobalTimekeeper.Tick);
+        toggleBubbles(false);
     }
     public static void toggleGoButton(bool a) {
         instance.go.interactable = a;
@@ -31,6 +33,20 @@ public class GameUIManager : MonoBehaviour
     public static void updatePower(float val)
     {
         instance.power.updateValue(val);
+    }
+
+    public static int getMove()
+    {
+        return instance.moveControls.movchoice;
+    }
+    public static void toggleBubbles(bool s) {
+        ParticleSystem.EmissionModule em;
+        em = instance.bubbles[0].emission;
+        em.enabled = s;
+        em = instance.bubbles[1].emission;
+        em.enabled = s;
+        em = instance.bubbles[2].emission;
+        em.enabled = s;
     }
     public static void tickReset() {
         instance.moveControls.reset();
