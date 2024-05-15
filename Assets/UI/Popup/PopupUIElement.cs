@@ -59,12 +59,10 @@ public class PopupUIElement : MonoBehaviour
     void ShowPopup()
     {
         _uiDocument.rootVisualElement.style.display = DisplayStyle.Flex;
-        // _uiDocument.sortingOrder = 10;
     }
 
     void HidePopup()
     {
         _uiDocument.rootVisualElement.style.display = DisplayStyle.None;
-        // _uiDocument.sortingOrder = -10;
     }
 }
