@@ -8,6 +8,15 @@ public class GameUIManager : MonoBehaviour
     public ValueToSprite power;
     public MovePanelInterpreter moveControls;
     public static GameUIManager instance;
+    public Button go;
+
+    private void Start()
+    {
+        go.onClick.AddListener(GlobalTimekeeper.Tick);
+    }
+    public static void toggleGoButton(bool a) {
+        instance.go.interactable = a;
+    }
     public static void initOxygen(float maxCapacity) {
         instance.oxygen.max = maxCapacity;
     }

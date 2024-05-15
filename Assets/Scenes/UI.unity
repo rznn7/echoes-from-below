@@ -301,10 +301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 614049709079652183, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.00003
-      objectReference: {fileID: 0}
     - target: {fileID: 1851624578493355351, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -405,10 +401,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 369126932}
-    - target: {fileID: 4666808082460017323, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.00003
-      objectReference: {fileID: 0}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -436,10 +428,6 @@ PrefabInstance:
     - target: {fileID: 7578989512105742871, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_Name
       value: ControlCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200198231793071055, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.00003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
