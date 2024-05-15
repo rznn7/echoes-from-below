@@ -11,11 +11,16 @@ public class MovePanelInterpreter : MonoBehaviour
     public void updateImg(int a)
     {
         if (movchoice == a) {
-            img.sprite = non;
-            movchoice = -1;
+            reset();
             return;
         }
         img.sprite = icons[a];
         movchoice = a;
+    }
+
+    public void reset()
+    {
+        img.sprite = non;
+        movchoice = -1;
     }
 }

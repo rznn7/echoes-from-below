@@ -6,6 +6,7 @@ public class GameUIManager : MonoBehaviour
 {
     public ValueToSprite oxygen;
     public ValueToSprite power;
+    public MovePanelInterpreter moveControls;
     public static GameUIManager instance;
     public static void initOxygen(float maxCapacity) {
         instance.oxygen.max = maxCapacity;
@@ -21,6 +22,9 @@ public class GameUIManager : MonoBehaviour
     public static void updatePower(float val)
     {
         instance.power.updateValue(val);
+    }
+    public static void tickReset() {
+        instance.moveControls.reset();
     }
     // Start is called before the first frame update
     void Awake()
