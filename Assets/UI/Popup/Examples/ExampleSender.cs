@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ExampleSender : MonoBehaviour, IPopupMessageSender
 {
-    public event Action<List<PopupMessage>> AddMessagesToQueue;
+    public event Action<List<PopupMessage>, MessagePriority> AddMessagesToQueue;
 
-    public void SendHelloWorldMessage()
+    public void SendMediumPriorityMessage()
     {
         List<PopupMessage> messages = new()
         {
@@ -25,8 +25,23 @@ public class ExampleSender : MonoBehaviour, IPopupMessageSender
             new PopupMessage("At vero eos et accusamus...", "OK")
         };
 
-        AddMessagesToQueue?.Invoke(messages);
+        AddMessagesToQueue?.Invoke(messages, MessagePriority.Medium);
 
-        Debug.Log("Messages init");
+        Debug.Log("Medium priority messages sent");
+    }
+
+    public void SendHighPriorityMessage()
+    {
+        List<PopupMessage> messages = new()
+        {
+            new PopupMessage(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    .ToUpper(),
+                "OK"),
+        };
+
+        AddMessagesToQueue?.Invoke(messages, MessagePriority.High);
+
+        Debug.Log("High priority messages sent");
     }
 }
