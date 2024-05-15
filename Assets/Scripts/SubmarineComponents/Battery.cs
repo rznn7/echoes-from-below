@@ -1,7 +1,9 @@
-﻿namespace SubmarineComponents
+﻿public class Battery
 {
-    public class Battery
+    public int AmountToCharge;
+    
+    public Battery(int amountToCharge)
     {
-        public int AmountToCharge = 50;
+        AmountToCharge = amountToCharge;
     }
 }

@@ -1,14 +1,14 @@
-public class Power
+﻿public class Oxygen
 {
     public int MaxAmount = 100;
     public int CurrentAmount;
     
-    public Power()
+    public Oxygen()
     {
         CurrentAmount = MaxAmount;
     }
     
-    public void AddPower(int amount)
+    public void AddOxygen(int amount)
     {
         CurrentAmount += amount;
         if (CurrentAmount > MaxAmount)
@@ -17,7 +17,7 @@ public class Power
         }
     }
     
-    public void SubtractPower(int amount)
+    public void SubtractOxygen(int amount)
     {
         CurrentAmount -= amount;
         if (CurrentAmount < 0)
