@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8399353987628008049, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1276,6 +1280,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1384922340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9202639194707040531, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
+  m_PrefabInstance: {fileID: 1205937041551517975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1384922343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384922340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d43c493b17e5df46a2212adf43db530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1943602934}
 --- !u!1 &1675516145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1582,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9202639194707040531, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1384922343}
   m_SourcePrefab: {fileID: 100100000, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
 --- !u!1001 &1681394126739833079
 PrefabInstance:
