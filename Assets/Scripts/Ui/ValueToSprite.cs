@@ -16,16 +16,23 @@ public class ValueToSprite : MonoBehaviour
         updateDisplay();
     }
     public void updateValue(float a) {
-        value = a;
+        value = Mathf.Clamp(a, min, max);
         updateDisplay();
     }
     public void updateDisplay() {
-        int number = Mathf.FloorToInt(value/slabSize);
-        if (number == 0) {
-            number++;
+        if (value >= max)
+        {
+            img.sprite = sprites[sprites.Length - 1];
         }
-        img.sprite = sprites[number-1];
-          
+        else if (value <= min)
+        {
+            img.sprite = sprites[0];
+        }
+        else
+        {
+            int number = Mathf.FloorToInt(value / slabSize);
+            img.sprite = sprites[number];
+        }
     }
     void recalculateSlabSize() {
         slabSize = (max - min) / sprites.Length;

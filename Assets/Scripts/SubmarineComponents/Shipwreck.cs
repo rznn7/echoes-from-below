@@ -1,30 +1,18 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class Shipwreck : MonoBehaviour
+public class Shipwreck : MonoBehaviour, IPopupActivator
 {
-    //50% chance to drop a battery
-    //50% chance to drop an oxygen pack
+    public event Action ActivatePopup;
     
     [SerializeField] private Button dropItemButton;
     
-    private Power power;
-    private Oxygen oxygen;
-
     private void Start()
     {
         dropItemButton.onClick.AddListener(DropItem);
-
-        power = FindObjectOfType<SubmarineTest>().power;
-        oxygen = FindObjectOfType<SubmarineTest>().oxygen;
-        
-        if (power != null)
-            Debug.Log("Power has been found");
-        
-        if (oxygen != null)
-            Debug.Log("Oxygen has been found");
     }
 
     private void OnDestroy()
@@ -36,29 +24,29 @@ public class Shipwreck : MonoBehaviour
     {
         if (Random.value < 0.5f)
         {
-            Debug.Log("Shipwreck yields a battery");
-            Battery battery = new Battery(50);
-
-            if (power != null)
-            {
-                power.AddPower(battery.AmountToCharge);
-                GameUIManager.instance.power.updateValue(power.CurrentAmount);
-            }
-            else
-                Debug.LogWarning("Power is null");
+            ShipwreckPopupSender popupSender = FindObjectOfType<ShipwreckPopupSender>();
+            
+            Battery battery = new Battery(Random.Range(10, 50));
+            
+            if (popupSender != null)
+                popupSender.SendBatteryPopupMessage(battery.AmountToCharge);
+            ActivatePopup?.Invoke();
+            
+            GameUIManager.updatePower(GameUIManager.instance.power.value + battery.AmountToCharge);
+            Debug.Log("Power: " + GameUIManager.instance.power.value);
         }
         else
         {
-            Debug.Log("Shipwreck yields an oxygen pack");
-            OxygenPack oxygenPack = new OxygenPack(50);
+            ShipwreckPopupSender popupSender = FindObjectOfType<ShipwreckPopupSender>();
             
-            if (oxygen != null)
-            {
-                oxygen.AddOxygen(oxygenPack.AmountToRecover);
-                GameUIManager.instance.oxygen.updateValue(oxygen.CurrentAmount);
-            }
-            else
-                Debug.LogWarning("Oxygen is null");
+            OxygenPack oxygenPack = new OxygenPack(Random.Range(10, 50));
+            
+            if (popupSender != null)
+                popupSender.SendOxygenPopupMessage(oxygenPack.AmountToRecover);
+            ActivatePopup?.Invoke();
+            
+            GameUIManager.updateOxygen(GameUIManager.instance.oxygen.value + oxygenPack.AmountToRecover);
+            Debug.Log("Oxygen: " + GameUIManager.instance.oxygen.value);
         }
     }
 }
