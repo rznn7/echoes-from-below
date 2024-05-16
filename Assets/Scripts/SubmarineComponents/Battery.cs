@@ -1,8 +1,8 @@
 ﻿public class Battery
 {
-    public int AmountToCharge;
+    public float AmountToCharge;
     
-    public Battery(int amountToCharge)
+    public Battery(float amountToCharge)
     {
         AmountToCharge = amountToCharge;
     }
