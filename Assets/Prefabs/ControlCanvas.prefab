@@ -131,46 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3915735997685686428}
     m_Modifications:
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: ShapeModule.angle
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 4.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 8.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 295769136326991886, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 502679682307367696, guid: 3960489213240314da8aa394da12817e, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -203,34 +163,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926648846130588284, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5576947781505676899, guid: 3960489213240314da8aa394da12817e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -238,34 +170,6 @@ PrefabInstance:
     - target: {fileID: 5576947781505676899, guid: 3960489213240314da8aa394da12817e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6300489545994932060, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: InitialModule.startLifetime.minMaxState
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6569279522732970129, guid: 3960489213240314da8aa394da12817e, type: 3}
       propertyPath: m_Name
