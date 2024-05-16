@@ -1,8 +1,8 @@
 ﻿public class OxygenPack
 {
-    public int AmountToRecover;
+    public float AmountToRecover;
     
-    public OxygenPack(int amountToRecover)
+    public OxygenPack(float amountToRecover)
     {
         AmountToRecover = amountToRecover;
     }
