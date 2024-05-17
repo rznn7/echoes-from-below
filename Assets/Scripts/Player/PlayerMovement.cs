@@ -57,19 +57,28 @@ public class PlayerMovement : MonoBehaviour
     void onTick()
     {
         GameUIManager.toggleGoButton(false);
-        GameUIManager.toggleBubbles(true);
+       
         inTimeout = true;
         t = 0;
         int movC = GameUIManager.getMove();
-        if (movC != -1) {
+        if (movC != -1)
+        {
+            GameUIManager.toggleBubbles(true);
             Vector3 dir = directions[movC];
             startpos = this.transform.position;
-            bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7),QueryTriggerInteraction.Collide);
-            endpos = startpos + (new Vector3(dir.x,ylev,dir.y)*((hits)?0:1));
+            bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7), QueryTriggerInteraction.Collide);
+            endpos = startpos + (new Vector3(dir.x, ylev, dir.y) * ((hits) ? 0 : 1));
             startrot = this.transform.eulerAngles.y;
             endrot = startrot + dir.z;
+
+        }
+        else {
+            startpos = this.transform.position;
+            endpos = startpos;
         }
 
 
+
+        
     }
 }
