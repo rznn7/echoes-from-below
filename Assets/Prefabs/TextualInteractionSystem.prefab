@@ -168,3 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7311429e984d2cb7a2acab1b87726d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textualInteractionStartUIElement: {fileID: 8931636905243816512}
+  textualInteractionEndUIElement: {fileID: 663722574255083504}
