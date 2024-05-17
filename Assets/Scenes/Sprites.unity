@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7358708794290606453, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: scrapDisp
+      value: 
+      objectReference: {fileID: 957132879}
     - target: {fileID: 7362704910633577836, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -948,6 +952,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &957132879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7448964256330077544, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+  m_PrefabInstance: {fileID: 258270489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943602932
 GameObject:
   m_ObjectHideFlags: 0
