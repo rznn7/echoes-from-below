@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    MapCoordinatesCalculator mapCoordinatesCalculator;
+
+    [SerializeField]
+    MapVisibility mapVisibility;
+
     void Start()
     {
-        
+        GlobalTimekeeper.inst.dotick.AddListener(OnTick);
+        mapVisibility.Hide();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTick()
     {
-        
+        mapCoordinatesCalculator.UpdateCoordinates();
     }
 }

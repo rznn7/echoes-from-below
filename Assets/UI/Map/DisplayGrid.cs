@@ -14,26 +14,34 @@ public class DisplayGrid : MonoBehaviour
 
     void GenerateGrid()
     {
-        float halfCellSize = cellSize / 2;
-        
-        for (int x = -gridSize; x <= gridSize; x++)
+        var halfCellSize = cellSize / 2;
+
+        for (var x = -gridSize; x <= gridSize; x++)
         {
-            float xPos = x * cellSize - halfCellSize;
-            CreateLine(new Vector3(xPos, 0, -gridSize * cellSize - halfCellSize), new Vector3(xPos, 0, gridSize * cellSize - halfCellSize));
+            var xPosition = x * cellSize - halfCellSize;
+            CreateLine(new Vector3(xPosition, 0, -gridSize * cellSize - halfCellSize),
+                new Vector3(xPosition, 0, gridSize * cellSize - halfCellSize));
         }
 
-        for (int z = -gridSize; z <= gridSize; z++)
+        for (var z = -gridSize; z <= gridSize; z++)
         {
-            float zPos = z * cellSize - halfCellSize;
-            CreateLine(new Vector3(-gridSize * cellSize - halfCellSize, 0, zPos), new Vector3(gridSize * cellSize - halfCellSize, 0, zPos));
+            var zPosition = z * cellSize - halfCellSize;
+            CreateLine(new Vector3(-gridSize * cellSize - halfCellSize, 0, zPosition),
+                new Vector3(gridSize * cellSize - halfCellSize, 0, zPosition));
         }
     }
 
     void CreateLine(Vector3 start, Vector3 end)
     {
-        GameObject line = new GameObject("GridLine");
-        line.transform.parent = transform;
-        LineRenderer lr = line.AddComponent<LineRenderer>();
+        var line = new GameObject("GridLine")
+        {
+            transform =
+            {
+                parent = transform
+            }
+        };
+
+        var lr = line.AddComponent<LineRenderer>();
         lr.startWidth = lineWidth;
         lr.endWidth = lineWidth;
         lr.material = new Material(Shader.Find("Sprites/Default"));

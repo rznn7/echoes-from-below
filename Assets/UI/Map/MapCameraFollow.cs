@@ -1,17 +1,9 @@
-using System;
 using UnityEngine;
 
 public class MapCameraFollow : MonoBehaviour
 {
     [SerializeField]
     Transform playerTransform;
-
-    Camera _mapCamera;
-
-    void Awake()
-    {
-        _mapCamera = GetComponent<Camera>();
-    }
 
     void Update()
     {

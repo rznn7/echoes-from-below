@@ -17,7 +17,6 @@ public class MapCoordinatesCalculator : MonoBehaviour
     {
         InitializeCoordinateLabels();
         UpdateCoordinates();
-        GlobalTimekeeper.inst.dotick.AddListener(UpdateCoordinates);
     }
 
     void InitializeCoordinateLabels()
@@ -38,7 +37,7 @@ public class MapCoordinatesCalculator : MonoBehaviour
         }
     }
 
-    void UpdateCoordinates()
+    public void UpdateCoordinates()
     {
         StartCoroutine(UpdateCoordinatesCoroutine());
     }
