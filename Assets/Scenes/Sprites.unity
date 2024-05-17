@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 548406565}
+    - target: {fileID: 4504526838356310253, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1943602933}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -337,6 +341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7890315058457691488, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1943602934}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

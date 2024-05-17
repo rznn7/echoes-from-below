@@ -6,6 +6,8 @@ public class GameUIManager : MonoBehaviour
 {
     public ValueToSprite oxygen;
     public ValueToSprite power;
+    public ValueToSprite bullets;
+    public ValueToSprite leak;
     public MovePanelInterpreter moveControls;
     public ParticleSystem[] bubbles;
     public static GameUIManager instance;
@@ -26,15 +28,26 @@ public class GameUIManager : MonoBehaviour
     {
         instance.power.max = maxCapacity;
     }
+    public static void initLeak(float maxCapacity)
+    {
+        instance.leak.max = maxCapacity;
+    }
     public static void updateOxygen(float val)
     {
         instance.oxygen.updateValue(val);
+    }
+    public static void updateBullets(float val)
+    {
+        instance.bullets.updateValue(val);
     }
     public static void updatePower(float val)
     {
         instance.power.updateValue(val);
     }
-
+    public static void updateLeak(float val)
+    {
+        instance.leak.updateValue(val);
+    }
     public static int getMove()
     {
         return instance.moveControls.movchoice;
