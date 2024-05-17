@@ -430,6 +430,10 @@ PrefabInstance:
       value: ControlCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7890315058457691488, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: changingString
+      value: '-'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890315058457691488, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1943602934}
