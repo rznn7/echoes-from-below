@@ -2,59 +2,57 @@
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TextualInteractionManager : MonoBehaviour
 {
-    TextualInteractionStartUIElement _textualInteractionStartUIElement;
-    TextualInteractionEndUIElement _textualInteractionEndUIElement;
+    [SerializeField]
+    TextualInteractionStartUIElement textualInteractionStartUIElement;
+    [SerializeField]
+    TextualInteractionEndUIElement textualInteractionEndUIElement;
 
     Subject<bool> _interactionSubject;
 
-    void Start()
+    void Awake()
     {
-        _textualInteractionStartUIElement = GetComponentInChildren<TextualInteractionStartUIElement>();
-        _textualInteractionEndUIElement = GetComponentInChildren<TextualInteractionEndUIElement>();
+        textualInteractionStartUIElement.AnswerInteraction += OnInteractionAnswered;
+        textualInteractionEndUIElement.EndInteraction += OnInteractionEnded;
 
-        _textualInteractionStartUIElement.AnswerInteraction += OnInteractionAnswered;
-        _textualInteractionEndUIElement.EndInteraction += OnInteractionEnded;
-
-        _textualInteractionStartUIElement.Hide();
-        _textualInteractionEndUIElement.Hide();
+        textualInteractionStartUIElement.Hide();
+        textualInteractionEndUIElement.Hide();
     }
 
     public IObservable<bool> StartInteraction(TextualInteraction interaction)
     {
         _interactionSubject = new Subject<bool>();
 
-        _textualInteractionStartUIElement.SetData(interaction);
-        _textualInteractionStartUIElement.Show();
+
+        textualInteractionStartUIElement.SetData(interaction);
+        textualInteractionEndUIElement.SetData(interaction);
+
+        textualInteractionStartUIElement.Show();
 
         return _interactionSubject.AsObservable();
     }
 
     void OnInteractionAnswered(bool answer)
     {
-        _textualInteractionStartUIElement.Hide();
+        textualInteractionStartUIElement.Hide();
 
-        if (answer)
-        {
-            _textualInteractionEndUIElement.SetData(new TextualInteraction("",
-                "Interaction Accepted",
-                "",
-                "",
-                "Close"));
-            _textualInteractionEndUIElement.Show();
-        }
-        else
+        if (!answer)
         {
             _interactionSubject.OnNext(false);
             _interactionSubject.OnCompleted();
+            return;
         }
+
+        textualInteractionEndUIElement.Show();
     }
 
     void OnInteractionEnded()
     {
-        _textualInteractionEndUIElement.Hide();
+        textualInteractionEndUIElement.Hide();
+
         _interactionSubject.OnNext(true);
         _interactionSubject.OnCompleted();
     }
