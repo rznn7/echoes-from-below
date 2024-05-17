@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
 
         }
         else {
+            startrot = this.transform.eulerAngles.y;
+            endrot = startrot;
             startpos = this.transform.position;
             endpos = startpos;
         }
