@@ -97,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.collider.CompareTag("Event"))
             {
-                var shipwreck = hit.collider.GetComponent<Shipwreck>();
-                if (shipwreck != null)
+                var interaction = hit.collider.GetComponent<IHandleInteraction>();
+                if (interaction != null)
                 {
-                    yield return shipwreck.HandleEventInteraction();
+                    yield return interaction.HandleEventInteraction();
                 }
             }
         }
