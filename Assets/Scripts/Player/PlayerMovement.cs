@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
                 this.transform.position = endpos;
                 this.transform.eulerAngles = new Vector3(0, endrot, 0);
                 OnPlayerMove?.Invoke();
+                StartCoroutine(DetectEventAfterMove());
             }
             else
             {
@@ -61,10 +62,11 @@ public class PlayerMovement : MonoBehaviour
     void onTick()
     {
         StartCoroutine(DetectEventRoutine());
-        
+    }
+
+    private IEnumerator DetectEventRoutine()
+    {
         GameUIManager.toggleGoButton(false);
-        inTimeout = true;
-        t = 0;
         int movC = GameUIManager.getMove();
         if (movC != -1)
         {
@@ -76,34 +78,32 @@ public class PlayerMovement : MonoBehaviour
             startrot = this.transform.eulerAngles.y;
             endrot = startrot + dir.z;
         }
-        else {
+        else
+        {
             startrot = this.transform.eulerAngles.y;
             endrot = startrot;
             startpos = this.transform.position;
             endpos = startpos;
-
         }
+
+        inTimeout = true;
+        t = 0;
+        yield return null;
     }
     
-    private void DetectEventProximity()
+    private IEnumerator DetectEventAfterMove()
     {
         if (Physics.Raycast(transform.position, transform.forward, out var hit, 1f))
         {
             if (hit.collider.CompareTag("Event"))
             {
-                hit.collider?.GetComponent<Shipwreck>()?.DropItem();
-                Debug.Log("Found a shipwreck event!");
+                var shipwreck = hit.collider.GetComponent<Shipwreck>();
+                if (shipwreck != null)
+                {
+                    yield return shipwreck.HandleEventInteraction();
+                }
             }
         }
-    }
-
-    private IEnumerator DetectEventRoutine()
-    {
-        DetectEventProximity();
-        yield return new WaitForSeconds(timeout / 2);
-        Debug.Log("Waiting to check for event...");
-
-        yield return null;
     }
 
     private void OnDrawGizmos()

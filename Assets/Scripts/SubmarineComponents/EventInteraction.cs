@@ -5,7 +5,7 @@ public class EventInteraction : MonoBehaviour
 {
     public TextualInteractionManager textualInteractionManager;
     
-    public void SendBatteryInteractionMessage(float amountToCharge, Action onAccept)
+    public void SendBatteryInteractionMessage(float amountToCharge, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
             "You come across a shipwreck up ahead. You might find something interesting in it...",
@@ -20,12 +20,15 @@ public class EventInteraction : MonoBehaviour
             if (interactionAnswer)
             {
                 onAccept?.Invoke();
-                Debug.Log("Player accepted the interaction");
+            }
+            else
+            {
+                onDeny?.Invoke();
             }
         });
     }
     
-    public void SendOxygenInteractionMessage(float amountToRecover, Action onAccept)
+    public void SendOxygenInteractionMessage(float amountToRecover, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
             "You come across a shipwreck up ahead. You might find something interesting in it...",
@@ -40,12 +43,15 @@ public class EventInteraction : MonoBehaviour
             if (interactionAnswer)
             {
                 onAccept?.Invoke();
-                Debug.Log("Player accepted the interaction");
+            }
+            else
+            {
+                onDeny?.Invoke();
             }
         });
     }
     
-    public void SendScrapInteractionMessage(int amountToAdd, Action onAccept)
+    public void SendScrapInteractionMessage(int amountToAdd, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
             "You come across a shipwreck up ahead. You might find something interesting in it...",
@@ -54,18 +60,21 @@ public class EventInteraction : MonoBehaviour
             "Deny",
             "Close"
         );
-        
+
         textualInteractionManager.StartInteraction(interaction).Subscribe((interactionAnswer) =>
         {
             if (interactionAnswer)
             {
                 onAccept?.Invoke();
-                Debug.Log("Player accepted the interaction");
+            }
+            else
+            {
+                onDeny?.Invoke();
             }
         });
     }
     
-    public void SendAmmoInteractionMessage(int amountToAdd, Action onAccept)
+    public void SendAmmoInteractionMessage(int amountToAdd, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
             "You come across a shipwreck up ahead. You might find something interesting in it...",
@@ -74,13 +83,16 @@ public class EventInteraction : MonoBehaviour
             "Deny",
             "Close"
         );
-        
+
         textualInteractionManager.StartInteraction(interaction).Subscribe((interactionAnswer) =>
         {
             if (interactionAnswer)
             {
                 onAccept?.Invoke();
-                Debug.Log("Player accepted the interaction");
+            }
+            else
+            {
+                onDeny?.Invoke();
             }
         });
     }
