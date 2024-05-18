@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,8 +57,9 @@ public class PlayerMovement : MonoBehaviour
 
     void onTick()
     {
+        StartCoroutine(DetectEventRoutine());
+        
         GameUIManager.toggleGoButton(false);
-       
         inTimeout = true;
         t = 0;
         int movC = GameUIManager.getMove();
@@ -70,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
             endpos = startpos + (new Vector3(dir.x, ylev, dir.y) * ((hits) ? 0 : 1));
             startrot = this.transform.eulerAngles.y;
             endrot = startrot + dir.z;
-
         }
         else {
             startrot = this.transform.eulerAngles.y;
@@ -78,9 +79,32 @@ public class PlayerMovement : MonoBehaviour
             startpos = this.transform.position;
             endpos = startpos;
         }
+    }
+    
+    private void DetectEventProximity()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out var hit, 1f))
+        {
+            if (hit.collider.CompareTag("Event"))
+            {
+                hit.collider?.GetComponent<Shipwreck>()?.DropItem();
+                Debug.Log("Found a shipwreck event!");
+            }
+        }
+    }
 
+    private IEnumerator DetectEventRoutine()
+    {
+        DetectEventProximity();
+        yield return new WaitForSeconds(timeout / 2);
+        Debug.Log("Waiting to check for event...");
 
+        yield return null;
+    }
 
-        
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward);
     }
 }
