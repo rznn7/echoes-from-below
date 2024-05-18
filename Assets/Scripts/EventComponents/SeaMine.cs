@@ -3,15 +3,19 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Shipwreck : MonoBehaviour
+public class SeaMine : MonoBehaviour, IHandleInteraction
 {
+    public event Action OnMineExploded;
+    
     public IEnumerator HandleEventInteraction()
     {
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
+        
+        GameUIManager.eventDisp(0);
 
         bool eventHandled = false;
-
+        
         Action onAccept = () => 
         {
             Debug.Log("Player accepted the interaction");
@@ -24,38 +28,41 @@ public class Shipwreck : MonoBehaviour
             eventHandled = true;
         };
 
-        if (Random.value < 0.25f)
+        bool explode = Random.value < 0.5f;
+
+        if (explode)
         {
-            int batteryAmountToCharge = Random.Range(10, 50);
-            interaction.SendBatteryInteractionMessage(batteryAmountToCharge, onAccept, onDeny);
-        }
-        else if (Random.value < 0.5f)
-        {
-            int oxygenAmountToRecover = Random.Range(10, 50);
-            interaction.SendOxygenInteractionMessage(oxygenAmountToRecover, onAccept, onDeny);
-        }
-        else if (Random.value < 0.75f)
-        {
-            int scrapToCollect = Random.Range(1, 4);
-            interaction.SendScrapInteractionMessage(scrapToCollect, onAccept, onDeny);
+            OnMineExploded?.Invoke();
+            interaction.SendSeaMineInteractionMessage(true, 
+                () => {
+                    onAccept.Invoke();
+                    DealDamage();
+                }, onDeny);
         }
         else
         {
-            int ammoToCollect = Random.Range(1, 4);
-            interaction.SendAmmoInteractionMessage(ammoToCollect, onAccept, onDeny);
+            interaction.SendSeaMineInteractionMessage(false, onAccept, onDeny);
         }
-
+        
         while (!eventHandled)
         {
             yield return null;
         }
 
-        Destroy(gameObject);
+        GameUIManager.eventDisp(-1);
+        gameObject.SetActive(false);
+    }
+    
+    private void DealDamage()
+    {
+        //leak
+        GameUIManager.updateLeak(GameUIManager.instance.leak.value + Random.Range(30, 60));
+        Debug.Log(GameUIManager.instance.leak.value);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 1));
     }
 }
