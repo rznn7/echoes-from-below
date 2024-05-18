@@ -11,6 +11,8 @@ public class GameUIManager : MonoBehaviour
     public ValueToSprite leak;
     public MovePanelInterpreter moveControls;
     public ParticleSystem[] bubbles;
+    public GameObject[] encounters;
+    public GameObject[] enemies;
     public static GameUIManager instance;
     public Button go;
     public TMP_Text scrapDisp;
@@ -20,8 +22,6 @@ public class GameUIManager : MonoBehaviour
     {
         go.onClick.AddListener(GlobalTimekeeper.Tick);
         toggleBubbles(false);
-
-        
     }
     public static void toggleGoButton(bool a) {
         instance.go.interactable = a;
@@ -71,6 +71,35 @@ public class GameUIManager : MonoBehaviour
     }
     public static void tickReset() {
         instance.moveControls.reset();
+        eventDisp(-1);
+        enemyDisp(-1);
+    }
+    /// <summary>
+    /// -1 : clear
+    /// 0 : sea mine
+    /// 1 : shipwreck
+    /// 2 : shoal
+    /// 3 : scrap
+    /// </summary>
+    /// <returns></returns>
+    public static void eventDisp(int n) {
+        for (int i = 0; i < instance.encounters.Length; i++) {
+            instance.encounters[i].SetActive(i == n);
+        }
+    }
+
+    /// <summary>
+    /// -1 : clear
+    /// 0 : shark
+    /// 1 : anglerfish
+    /// </summary>
+    /// <returns></returns>
+    public static void enemyDisp(int n)
+    {
+        for (int i = 0; i < instance.encounters.Length; i++)
+        {
+            instance.encounters[i].SetActive(i == n);
+        }
     }
     // Start is called before the first frame update
     void Awake()
