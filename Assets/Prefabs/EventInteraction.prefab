@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6471821923022781661}
   - component: {fileID: 5801287389836345604}
   m_Layer: 0
-  m_Name: ShipwreckPopupSender
+  m_Name: EventInteraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d27ee6c48fac64fbdafaf44e5aa240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textualInteractionManager: {fileID: 0}
