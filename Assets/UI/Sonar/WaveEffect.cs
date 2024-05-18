@@ -10,22 +10,22 @@ public class WaveEffect : MonoBehaviour
     public int segments = 200;
     public Color waveColor = Color.white;
     public GameObject waveColliderPrefab;
-
+    public AnimationCurve opacityCurve;
     LineRenderer _lineRenderer;
     Coroutine _waveCoroutine;
     GameObject _currentWaveCollider;
-
     void Start()
     {
         _lineRenderer = gameObject.AddComponent<LineRenderer>();
         _lineRenderer.positionCount = 0;
-        _lineRenderer.startWidth = 0.02f;
-        _lineRenderer.endWidth = 0.02f;
+        _lineRenderer.startWidth = 0.05f;
+        _lineRenderer.endWidth = 0.05f;
         _lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         _lineRenderer.startColor = waveColor;
         _lineRenderer.endColor = waveColor;
         _lineRenderer.useWorldSpace = true;
         _lineRenderer.loop = true;
+
     }
 
     public void StartWave()
@@ -52,6 +52,9 @@ public class WaveEffect : MonoBehaviour
             var radius = Mathf.Lerp(0, maxRadius, elapsedTime / waveDuration) * waveSpeed;
             DrawCircle(radius, startPosition);
             waveCollider.radius = radius;
+            Color newColor = new Color(waveColor.r, waveColor.g, waveColor.b, opacityCurve.Evaluate(elapsedTime / waveDuration));
+            _lineRenderer.startColor = newColor;
+            _lineRenderer.endColor = newColor;
             elapsedTime += Time.deltaTime;
             yield return null;
         }

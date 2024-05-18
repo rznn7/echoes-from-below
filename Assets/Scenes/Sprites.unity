@@ -313,6 +313,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1943602933}
+    - target: {fileID: 4792538349571038156, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: startTransform
+      value: 
+      objectReference: {fileID: 1943602933}
+    - target: {fileID: 6493221632837553860, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: startTransform
+      value: 
+      objectReference: {fileID: 1943602933}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
