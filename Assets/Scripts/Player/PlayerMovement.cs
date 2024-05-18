@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public event Action OnPlayerMove;
+    
     private Vector3 startpos = new Vector3(0, 0, 0);
     public Vector3 endpos = new Vector3(0, 0, 0);
     private float startrot = 0;
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
                 inTimeout = false;
                 this.transform.position = endpos;
                 this.transform.eulerAngles = new Vector3(0, endrot, 0);
+                OnPlayerMove?.Invoke();
             }
             else
             {

@@ -7,23 +7,43 @@ public class Shipwreck : MonoBehaviour
 {
     public void DropItem()
     {
-        ShipwreckInteraction interaction = FindObjectOfType<ShipwreckInteraction>();
+        EventInteraction interaction = FindObjectOfType<EventInteraction>();
         
         if (interaction == null)
             return;
 
-        bool isBattery = Random.value < 0.5f;
-        if (isBattery)
+       
+        if (Random.value < 0.25f)
         {
-            Battery battery = new Battery(Random.Range(10, 50));
-            interaction.SendBatteryInteractionMessage(battery.AmountToCharge);
-            GameUIManager.updatePower(GameUIManager.instance.power.value + battery.AmountToCharge);
+            int batteryAmountToCharge = Random.Range(10, 50);
+            interaction.SendBatteryInteractionMessage(batteryAmountToCharge, () =>
+            {
+                GameUIManager.updatePower(GameUIManager.instance.power.value + batteryAmountToCharge);
+            });
+        }
+        else if (Random.value > 0.25f && Random.value < 0.5f)
+        {
+            int oxygenAmountToRecover = Random.Range(10, 50);
+            interaction.SendOxygenInteractionMessage(oxygenAmountToRecover, () =>
+            {
+                GameUIManager.updateOxygen(GameUIManager.instance.oxygen.value + oxygenAmountToRecover);
+            });
+        }
+        else if (Random.value > 0.5f && Random.value < 0.75f)
+        {
+            int scrapToCollect = Random.Range(1, 4);
+            interaction.SendScrapInteractionMessage(scrapToCollect, () =>
+            {
+                GameUIManager.updateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
+            });
         }
         else
         {
-            OxygenPack oxygenPack = new OxygenPack(Random.Range(10, 50));
-            interaction.SendOxygenInteractionMessage(oxygenPack.AmountToRecover);
-            GameUIManager.updateOxygen(GameUIManager.instance.oxygen.value + oxygenPack.AmountToRecover);
+            int ammoToCollect = Random.Range(1, 4);
+            interaction.SendAmmoInteractionMessage(ammoToCollect, () =>
+            {
+                GameUIManager.updateBullets(GameUIManager.instance.bullets.value + ammoToCollect);
+            });
         }
         
         Destroy(gameObject);
