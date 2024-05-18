@@ -61,11 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     void onTick()
     {
-        StartCoroutine(DetectEventRoutine());
-    }
-
-    private IEnumerator DetectEventRoutine()
-    {
         GameUIManager.toggleGoButton(false);
         int movC = GameUIManager.getMove();
         if (movC != -1)
@@ -88,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
         inTimeout = true;
         t = 0;
+    }
+
+    private IEnumerator DetectEventRoutine()
+    {
+        
         yield return null;
     }
     

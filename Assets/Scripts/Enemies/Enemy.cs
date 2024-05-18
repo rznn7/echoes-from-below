@@ -7,16 +7,16 @@ public class Enemy : MonoBehaviour
     private GameObject Player;
     private PlayerMovement playermovement;
     public float clipping;
-    public float t = 0;
-    public float timeout;
+    private float t = 0;
+    private float timeout;
     private float tiredtimer = 0;
     public float stamina;
     private Vector3 startpos;
     private Vector3 endpos;
     private bool moving = false;
     public AnimationCurve movcurve;
-    public bool insight;
-    public Vector3 lastknown;
+    private bool insight;
+    private Vector3 lastknown;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
         GlobalTimekeeper.inst.dotick.AddListener(tick);
         startpos = this.transform.position;
         insight = false;
+        timeout = playermovement.timeout;
     }
 
     // Update is called once per frame
@@ -43,6 +44,12 @@ public class Enemy : MonoBehaviour
     void tick()
     {
 
+        StartCoroutine(pathfinder());
+
+    }
+
+    IEnumerator pathfinder() {
+        yield return new WaitForEndOfFrame();
         this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
         endpos = this.transform.position;
         if (tiredtimer < stamina)
@@ -203,7 +210,6 @@ public class Enemy : MonoBehaviour
         {
             tiredtimer = 0;
         }
-
     }
     public bool feasiblepath(int inp)
     {
@@ -230,14 +236,16 @@ public class Enemy : MonoBehaviour
 
         }
 
-        bool hits = Physics.Linecast(this.transform.position, this.transform.position + dir, out hit, (1 << 7) | (1 << 6) | (1 << 8));
+        bool hits = Physics.Linecast(this.transform.position, this.transform.position + dir, out hit, (1 << 7) | (1 << 6) | (1 << 8)|(1<<10),QueryTriggerInteraction.Collide);
         if (hits)
         {
 
             return false;
 
         }
-
+        if (this.transform.position + dir == playermovement.endpos) {
+            return false;
+        }
         return true;
     }
 }
