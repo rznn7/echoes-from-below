@@ -4,6 +4,9 @@ public class WaveCollisionDetector : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision detected: " + other.gameObject.name);
+        if (other.gameObject.TryGetComponent<SonarListener>(out var sonarReceptor))
+        {
+            sonarReceptor.OnActivate();
+        }
     }
 }

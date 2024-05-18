@@ -7,7 +7,7 @@ public class WaveEffect : MonoBehaviour
     public float waveDuration = 2.0f;
     public float maxRadius = 5.0f;
     public float waveSpeed = 1.0f;
-    public int segments = 100;
+    public int segments = 200;
     public Color waveColor = Color.white;
     public GameObject waveColliderPrefab;
 
@@ -19,8 +19,8 @@ public class WaveEffect : MonoBehaviour
     {
         _lineRenderer = gameObject.AddComponent<LineRenderer>();
         _lineRenderer.positionCount = 0;
-        _lineRenderer.startWidth = 0.1f;
-        _lineRenderer.endWidth = 0.1f;
+        _lineRenderer.startWidth = 0.02f;
+        _lineRenderer.endWidth = 0.02f;
         _lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         _lineRenderer.startColor = waveColor;
         _lineRenderer.endColor = waveColor;
