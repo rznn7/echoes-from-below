@@ -98,7 +98,7 @@ public class GameUIManager : MonoBehaviour
     {
         for (int i = 0; i < instance.encounters.Length; i++)
         {
-            instance.encounters[i].SetActive(i == n);
+            instance.enemies[i].SetActive(i == n);
         }
     }
     // Start is called before the first frame update
