@@ -50,5 +50,6 @@ public class DisplayGrid : MonoBehaviour
         lr.positionCount = 2;
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
+        lr.sortingLayerName = "BG";
     }
 }
