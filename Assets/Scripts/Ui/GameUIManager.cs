@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class GameUIManager : MonoBehaviour
 {
     public ValueToSprite oxygen;
     public ValueToSprite power;
+    public ValueToSprite bullets;
+    public ValueToSprite leak;
     public MovePanelInterpreter moveControls;
     public ParticleSystem[] bubbles;
     public static GameUIManager instance;
     public Button go;
+    public TMP_Text scrapDisp;
+    static string fmt = "00";
 
     private void Start()
     {
         go.onClick.AddListener(GlobalTimekeeper.Tick);
         toggleBubbles(false);
+
+        
     }
     public static void toggleGoButton(bool a) {
         instance.go.interactable = a;
@@ -26,15 +33,29 @@ public class GameUIManager : MonoBehaviour
     {
         instance.power.max = maxCapacity;
     }
+    public static void initLeak(float maxCapacity)
+    {
+        instance.leak.max = maxCapacity;
+    }
+    public static void updateScrap(int val) {
+        instance.scrapDisp.text = ":" + val.ToString(fmt);
+    }
     public static void updateOxygen(float val)
     {
         instance.oxygen.updateValue(val);
+    }
+    public static void updateBullets(float val)
+    {
+        instance.bullets.updateValue(val);
     }
     public static void updatePower(float val)
     {
         instance.power.updateValue(val);
     }
-
+    public static void updateLeak(float val)
+    {
+        instance.leak.updateValue(val);
+    }
     public static int getMove()
     {
         return instance.moveControls.movchoice;

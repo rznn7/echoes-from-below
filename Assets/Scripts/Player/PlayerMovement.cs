@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             endrot = startrot;
             startpos = this.transform.position;
             endpos = startpos;
+
         }
     }
     

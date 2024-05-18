@@ -7,6 +7,9 @@ public class MapCoordinatesCalculator : MonoBehaviour
     [SerializeField]
     PlayerMovement playerMovement;
 
+    [SerializeField]
+    string changingString = "";
+
     TextMeshProUGUI[] _xCoordinateLabels;
     TextMeshProUGUI[] _yCoordinateLabels;
 
@@ -44,7 +47,7 @@ public class MapCoordinatesCalculator : MonoBehaviour
 
     IEnumerator UpdateCoordinatesCoroutine()
     {
-        SetCoordinateLabelsAlpha(0);
+        SetCoordinateLabelsToChangingString();
 
         yield return new WaitForSeconds(HideDuration);
 
@@ -55,21 +58,14 @@ public class MapCoordinatesCalculator : MonoBehaviour
             _xCoordinateLabels[i].text = $"{playerPosition.x + (i - 4)}";
             _yCoordinateLabels[i].text = $"{playerPosition.z + (4 - i)}";
         }
-
-        SetCoordinateLabelsAlpha(1);
     }
 
-    void SetCoordinateLabelsAlpha(float alpha)
+    void SetCoordinateLabelsToChangingString()
     {
         for (var i = 0; i < CoordinateCount; i++)
         {
-            var xColor = _xCoordinateLabels[i].color;
-            xColor.a = alpha;
-            _xCoordinateLabels[i].color = xColor;
-
-            var yColor = _yCoordinateLabels[i].color;
-            yColor.a = alpha;
-            _yCoordinateLabels[i].color = yColor;
+            _xCoordinateLabels[i].text = changingString;
+            _yCoordinateLabels[i].text = changingString;
         }
     }
 }
