@@ -167,10 +167,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1862826134049186090, guid: 3960489213240314da8aa394da12817e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 32.299927
-      objectReference: {fileID: 0}
     - target: {fileID: 5567839095914483760, guid: 3960489213240314da8aa394da12817e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -432,6 +428,10 @@ PrefabInstance:
     - target: {fileID: 9202639194707040531, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202639194707040531, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

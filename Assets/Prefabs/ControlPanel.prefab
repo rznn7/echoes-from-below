@@ -349,7 +349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 32.299988, y: -15.899994}
+  m_AnchoredPosition: {x: 32.299927, y: -15.899994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &7784672544858997035
@@ -1061,14 +1061,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8854099885001975585}
     m_Modifications:
-    - target: {fileID: 1220618299097155843, guid: 698bb122457036044b54540e9b3dd339, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1532373344279546314, guid: 698bb122457036044b54540e9b3dd339, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1862206694253273404, guid: 698bb122457036044b54540e9b3dd339, type: 3}
       propertyPath: m_Name
       value: PopupMessagesDisplayer
@@ -1579,18 +1571,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 957647316338101624}
     m_Modifications:
-    - target: {fileID: 568598240051881486, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 568598240051881486, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 568598240051881486, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1406176557643732706, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1693,30 +1673,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3990042211875589075}
     m_Modifications:
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Show
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MapVisibility, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020683000440328357, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5088174735869729909, guid: 6bbd7f898c48f9646b9dce91abc44b57, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
