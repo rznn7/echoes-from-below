@@ -26,12 +26,12 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
         if (!(GameUIManager.instance.power.value >= playerStats.powerCostToRepair) ||
             playerStats.scrapCount < 1 || GameUIManager.instance.leak.value == 0) return;
             
-        GameUIManager.updatePower(GameUIManager.instance.power.value - playerStats.powerCostToRepair); 
+        GameUIManager.UpdatePower(GameUIManager.instance.power.value - playerStats.powerCostToRepair); 
         playerStats.scrapCount--;
-        GameUIManager.updateScrap(playerStats.scrapCount);
+        GameUIManager.UpdateScrap(playerStats.scrapCount);
             
         float newLeakValue = GameUIManager.instance.leak.value - playerStats.leakReduction;
-        GameUIManager.updateLeak(newLeakValue > 0 ? newLeakValue : 0);
+        GameUIManager.UpdateLeak(newLeakValue > 0 ? newLeakValue : 0);
         leak.SetActive(false);
     }
 

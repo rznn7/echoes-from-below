@@ -13,7 +13,7 @@ public class FishShoal : MonoBehaviour, IHandleInteraction
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
-        GameUIManager.eventDisp(2);
+        GameUIManager.EventDisp(2);
         
         bool eventHandled = false;
         
@@ -35,7 +35,7 @@ public class FishShoal : MonoBehaviour, IHandleInteraction
             yield return null;
         }
 
-        GameUIManager.eventDisp(-1);
+        GameUIManager.EventDisp(-1);
         interactable = false;
     }
 
