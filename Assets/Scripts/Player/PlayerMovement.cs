@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public event Action OnPlayerMove;
-    
+
     private Vector3 startpos = new Vector3(0, 0, 0);
     public Vector3 endpos = new Vector3(0, 0, 0);
     private float startrot = 0;
@@ -17,13 +17,16 @@ public class PlayerMovement : MonoBehaviour
     public float timeout;
     public bool inTimeout;
     private float ylev;
-    private Vector3[] directions = {
+    private Vector3[] directions =
+    {
         new Vector3(0, 1, 0),
         new Vector3(0, -1, 0),
-        new Vector3(1,0,0),
-        new Vector3(-1,0,0),
-        new Vector3(0,0,-90),
-        new Vector3(0,0,90) };
+        new Vector3(1, 0, 0),
+        new Vector3(-1, 0, 0),
+        new Vector3(0, 0, -90),
+        new Vector3(0, 0, 90)
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
             else
             {
 
-                this.transform.eulerAngles = new Vector3(0,Mathf.Lerp(startrot, endrot, rotcurve.Evaluate(t / timeout)),0);
+                this.transform.eulerAngles =
+                    new Vector3(0, Mathf.Lerp(startrot, endrot, rotcurve.Evaluate(t / timeout)), 0);
                 this.transform.position = Vector3.Lerp(startpos, endpos, movcurve.Evaluate(t / timeout));
                 t += Time.deltaTime;
             }
@@ -68,7 +72,10 @@ public class PlayerMovement : MonoBehaviour
             GameUIManager.ToggleBubbles(true);
             Vector3 dir = directions[movC];
             startpos = this.transform.position;
-            bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7)|(1<<8), QueryTriggerInteraction.Collide);
+            bool hits = Physics.Linecast(startpos,
+                startpos + new Vector3(dir.x, ylev, dir.y),
+                (1 << 7) | (1 << 8),
+                QueryTriggerInteraction.Collide);
             endpos = startpos + (new Vector3(dir.x, ylev, dir.y) * ((hits) ? 0 : 1));
             startrot = this.transform.eulerAngles.y;
             endrot = startrot + dir.z;
@@ -84,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         inTimeout = true;
         t = 0;
     }
-    
+
     private IEnumerator DetectEventAfterMove()
     {
         if (Physics.Raycast(transform.position, transform.forward, out var hit, 1f))
@@ -97,19 +104,19 @@ public class PlayerMovement : MonoBehaviour
                     yield return interaction.HandleEventInteraction();
                 }
             }
-            
+
             if (hit.collider.CompareTag("Enemy"))
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    GameUIManager.enemyDisp(enemy.enemyIndex);
+                    GameUIManager.EnemyDisp(enemy.enemyIndex);
                     yield break;
                 }
             }
         }
-    
-        GameUIManager.enemyDisp(-1);
+
+        GameUIManager.EnemyDisp(-1);
         yield return null;
     }
 
