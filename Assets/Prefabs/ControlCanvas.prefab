@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41780c7d1010bdd468b19ae2bb97a26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverTrigger: {fileID: 0}
   oxygen: {fileID: 949010720632578872}
   power: {fileID: 44851086549705296}
   bullets: {fileID: 276758026715325078}
@@ -575,15 +576,15 @@ PrefabInstance:
       objectReference: {fileID: 4748225039988747246}
     - target: {fileID: 8511097719285371085, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.3536797
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511097719285371085, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.579794
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511097719285371085, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2087.5576
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511097719285371085, guid: d5342d55ab9a48648a299f828518b0d4, type: 3}
       propertyPath: m_LocalRotation.w

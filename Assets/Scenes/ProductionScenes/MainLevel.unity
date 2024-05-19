@@ -722,6 +722,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5642527030798065171, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
+      propertyPath: powerToSubtract
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642527030798065171, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
+      propertyPath: oxygenToSubtract
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6252683456872365855, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2651,10 +2659,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 388391878}
-    - target: {fileID: 2070395365055149095, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateFireHorizontalAim
-      objectReference: {fileID: 0}
     - target: {fileID: 2746891223897267601, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2667,10 +2671,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 388391878}
-    - target: {fileID: 3038953340493786154, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Fire
-      objectReference: {fileID: 0}
     - target: {fileID: 3915735997685686428, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2763,10 +2763,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 388391878}
-    - target: {fileID: 5879820031319527341, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateFireVerticalAim
-      objectReference: {fileID: 0}
+    - target: {fileID: 6295088486636461457, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 388391881}
+    - target: {fileID: 6295088486636461457, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: gridParent
+      value: 
+      objectReference: {fileID: 1529162710}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3745,6 +3749,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2008048046534597219, guid: e87a865f8a3b3d6429ed778f5ed5a7bb, type: 3}
   m_PrefabInstance: {fileID: 1510301598}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1529162710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529162711}
+  m_Layer: 0
+  m_Name: GridParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1529162711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529162710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545973572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,3 +5173,4 @@ SceneRoots:
   - {fileID: 883889825}
   - {fileID: 77271886}
   - {fileID: 1742928360}
+  - {fileID: 1529162711}
