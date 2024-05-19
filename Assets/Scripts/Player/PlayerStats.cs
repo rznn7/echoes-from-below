@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float oxygenToSubtract = 10f;
 
     public int scrapCount;
+    public int powerCostToRepair = 2;
+    public float leakReduction = 15f;
     
     private PlayerMovement playerMovement;
     
