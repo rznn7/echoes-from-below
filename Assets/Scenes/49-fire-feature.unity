@@ -328,6 +328,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   damageRange: {x: 10, y: 20}
+  enemyIndex: 0
 --- !u!4 &543670919
 Transform:
   m_ObjectHideFlags: 0
@@ -579,7 +580,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6832007374968060387, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
   m_PrefabInstance: {fileID: 7253567403627492410}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1942667791 stripped
+--- !u!114 &1786947233 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7904599686990338164, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
   m_PrefabInstance: {fileID: 7253567403627492410}
@@ -609,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 2070395365055149095, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1942667791}
+      objectReference: {fileID: 1786947233}
     - target: {fileID: 2746891223897267601, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -621,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 3038953340493786154, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1942667791}
+      objectReference: {fileID: 1786947233}
     - target: {fileID: 3915735997685686428, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -713,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 5879820031319527341, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1942667791}
+      objectReference: {fileID: 1786947233}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
