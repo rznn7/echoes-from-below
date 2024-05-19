@@ -84,12 +84,6 @@ public class PlayerMovement : MonoBehaviour
         inTimeout = true;
         t = 0;
     }
-
-    private IEnumerator DetectEventRoutine()
-    {
-        
-        yield return null;
-    }
     
     private IEnumerator DetectEventAfterMove()
     {
@@ -103,7 +97,20 @@ public class PlayerMovement : MonoBehaviour
                     yield return interaction.HandleEventInteraction();
                 }
             }
+            
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    GameUIManager.enemyDisp(enemy.enemyIndex);
+                    yield break;
+                }
+            }
         }
+    
+        GameUIManager.enemyDisp(-1);
+        yield return null;
     }
 
     private void OnDrawGizmos()

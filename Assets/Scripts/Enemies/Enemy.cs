@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private Vector3 lastknown;
 
     public Vector2 damageRange;
+    public int enemyIndex;
 
     // Start is called before the first frame update
     void Start()
