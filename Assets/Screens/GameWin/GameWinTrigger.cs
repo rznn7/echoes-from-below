@@ -4,30 +4,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class GameOverTrigger : MonoBehaviour
+public class GameWinTrigger : MonoBehaviour
 {
     [FormerlySerializedAs("duration")]
     [SerializeField]
     float fadeDuration = 4f;
 
-    public void TriggerGameOver(GameOverType gameOverType)
+    public void TriggerGameWin()
     {
-        GameOverMessage.Instance.message = GetGameOverMessage(gameOverType);
         StartCoroutine(FadeOutAndLoadSceneCoroutine());
-    }
-
-    static string GetGameOverMessage(GameOverType gameOverType)
-    {
-        return gameOverType switch
-        {
-            GameOverType.Leakage =>
-                "Despite your efforts, the leaks proved too much to handle. Your submarine is now descending into the abyss.",
-            GameOverType.OutOfPower =>
-                "You ran out of power and your submarine is now drifting aimlessly into the depths.",
-            GameOverType.OutOfOxygen =>
-                "Oxygen levels hit zero and your submarine is now a lifeless shell sinking into the abyss.",
-            _ => "Something went wrong, and now your submarine is heading towards the abyss."
-        };
     }
 
     IEnumerator FadeOutAndLoadSceneCoroutine()
@@ -60,17 +45,10 @@ public class GameOverTrigger : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameWin");
 
         yield return new WaitForSeconds(0.1f);
 
         Destroy(canvasObject);
     }
-}
-
-public enum GameOverType
-{
-    Leakage,
-    OutOfPower,
-    OutOfOxygen
 }
