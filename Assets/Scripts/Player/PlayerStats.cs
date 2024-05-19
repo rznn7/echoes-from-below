@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour
         GameUIManager.InitPower(GameUIManager.instance.power.max);
         GameUIManager.InitOxygen(GameUIManager.instance.oxygen.max);
         GameUIManager.InitLeak(GameUIManager.instance.leak.max);
-        GameUIManager.UpdateBullets(GameUIManager.instance.bullets.value);
+        GameUIManager.UpdateBullets(GameUIManager.instance.bullets.max);
     }
 
     private void OnDestroy()
