@@ -19,7 +19,7 @@ public class GameUIManager : MonoBehaviour
     public Button go;
     public TMP_Text scrapDisp;
     static string fmt = "00";
-
+    public ScreenShake ss;
     private void Start()
     {
         go.onClick.AddListener(GlobalTimekeeper.Tick);
@@ -42,6 +42,9 @@ public class GameUIManager : MonoBehaviour
     }
     public static void updateLeak(float val)
     {
+        if (val > instance.leak.value) {
+            instance.ss.shake(0.35f);
+        }
         instance.leak.updateValue(val);
     }
     public static void updateScrap(int val) {

@@ -326,6 +326,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageRange: {x: 10, y: 20}
 --- !u!4 &543670919
 Transform:
   m_ObjectHideFlags: 0
@@ -453,6 +454,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829220923271759879, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417691268436810183, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417691268436810183, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417691268436810183, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417691268436810183, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
+      propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
