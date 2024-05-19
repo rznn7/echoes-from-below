@@ -161,12 +161,63 @@ public class EventInteraction : MonoBehaviour
             "While navigating your submarine, you find that you're in proximity to a sea mine.",
             explode
                 ? "The mine explodes! Your submarine has taken damage!"
-                : "You get closer, but nothing happens. Must be a fake.",
+                : "You get closer, but nothing happens. Perhaps you've gotten lucky this time.",
             "Accept",
             "Deny",
             "Close"
         );
         
+        textualInteractionManager.StartInteraction(interaction).Subscribe((interactionAnswer) =>
+        {
+            if (interactionAnswer)
+            {
+                onAccept?.Invoke();
+            }
+            else
+            {
+                onDeny?.Invoke();
+            }
+        });
+    }
+    #endregion
+    
+    #region Fix Leak
+
+    public void SendFixLeakInteractionMessage(bool enoughResources, float leakValue, Action onAccept, Action onDeny)
+    {
+        var interaction = new TextualInteraction(
+            $"Your submarine may be leaking. The current leak percentage is {leakValue}%. A percentage above 20% will cause the leak to accumulate after every move." +
+            $" Fixing it will require 2 power and 1 scrap. Do you want to fix it?",
+            enoughResources ? $"You spend some time fixing the leak. That should do the trick for now. The leak percentage is reduced to {leakValue}%." 
+                : "Not enough resources to fix the leak.",
+            "Accept",
+            "Deny",
+            "Close"
+        );
+        
+        textualInteractionManager.StartInteraction(interaction).Subscribe((interactionAnswer) =>
+        {
+            if (interactionAnswer)
+            {
+                onAccept?.Invoke();
+            }
+            else
+            {
+                onDeny?.Invoke();
+            }
+        });
+    }
+
+    public void SendLeakDoesNotNeedFixingInteractionMessage(Action onAccept, Action onDeny)
+    {
+        var interaction = new TextualInteraction(
+            "Your submarine may be leaking. Fixing it will require 2 power and 1 scrap. Do you want to fix it?",
+            "There is no leak to fix. Your submarine is in good condition.",
+            "Accept",
+            "Deny",
+            "Close"
+        );
+
         textualInteractionManager.StartInteraction(interaction).Subscribe((interactionAnswer) =>
         {
             if (interactionAnswer)

@@ -16,13 +16,11 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
 
         Action onAccept = () => 
         {
-            Debug.Log("Player accepted the interaction");
             eventHandled = true;
         };
 
         Action onDeny = () =>
         {
-            Debug.Log("Player denied the interaction");
             eventHandled = true;
         };
 

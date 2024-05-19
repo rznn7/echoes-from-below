@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class SeaMine : MonoBehaviour, IHandleInteraction
 {
     public event Action OnMineExploded;
+    private static bool firstMineEncounter = true;
     
     public IEnumerator HandleEventInteraction()
     {
@@ -18,17 +19,25 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         
         Action onAccept = () => 
         {
-            Debug.Log("Player accepted the interaction");
             eventHandled = true;
         };
 
         Action onDeny = () =>
         {
-            Debug.Log("Player denied the interaction");
             eventHandled = true;
         };
 
-        bool explode = Random.value < 0.5f;
+        bool explode;
+
+        if (firstMineEncounter)
+        {
+            explode = false;
+            firstMineEncounter = false;
+        }
+        else
+        {
+            explode = Random.value < 0.5f;
+        }
 
         if (explode)
         {
@@ -55,9 +64,8 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
     
     private void DealDamage()
     {
-        //leak
-        GameUIManager.updateLeak(GameUIManager.instance.leak.value + Random.Range(30, 60));
-        Debug.Log(GameUIManager.instance.leak.value);
+        float leakIncrease = Random.Range(30, 60);
+        GameUIManager.updateLeak(GameUIManager.instance.leak.value + leakIncrease);
     }
 
     private void OnDrawGizmos()
