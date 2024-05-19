@@ -43,21 +43,18 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
         
         Action onAccept = () =>
         {
-            Debug.Log("Player accepted the interaction");
             FixLeak();
             eventHandled = true;
         };
         
         Action onDeny = () =>
         {
-            Debug.Log("Player denied the interaction");
             eventHandled = true;
         };
 
         float currentLeakValue = GameUIManager.instance.leak.value;
         if (currentLeakValue == 0)
         {
-            Debug.Log("Leak is already at 0%, no repair needed.");
             interaction.SendLeakDoesNotNeedFixingInteractionMessage(onAccept, onDeny);
             yield break;
         }
