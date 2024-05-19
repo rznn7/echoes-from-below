@@ -209,14 +209,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 218261268368911803, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 713240059760556896, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1851624578493355351, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -321,6 +313,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1943602933}
+    - target: {fileID: 4792538349571038156, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: startTransform
+      value: 
+      objectReference: {fileID: 1943602933}
     - target: {fileID: 7025313064720750664, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -349,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7890315058457691488, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1943602936}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb51709d3d48fc47bb63a0429139f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticksound: {fileID: 0}
+  ticksound: {fileID: 8300000, guid: 285c498281c15c54682ba20102d904c7, type: 3}
   sounds: []
   dotick:
     m_PersistentCalls:
@@ -915,6 +915,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6832007374968060387, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
   m_PrefabInstance: {fileID: 7884708811004809395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943602936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8547524601290596317, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
+  m_PrefabInstance: {fileID: 7884708811004809395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e452809185a43a41a1a5c266fb26d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2035650553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1159,10 +1170,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5642527030798065171, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
-      propertyPath: scrapCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6252683456872365855, guid: 28f399ee79040ed4aaf4d5830cc24572, type: 3}
       propertyPath: m_Name
       value: Player

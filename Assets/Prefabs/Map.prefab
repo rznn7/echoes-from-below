@@ -3599,7 +3599,7 @@ PrefabInstance:
     - target: {fileID: 8423006375558141627, guid: fcf02e53604bf234abcf04c0c9dfc12e, type: 3}
       propertyPath: m_VolumeTrigger
       value: 
-      objectReference: {fileID: 8313842830921740942}
+      objectReference: {fileID: 5822183775180097686}
     - target: {fileID: 8841177404337282456, guid: fcf02e53604bf234abcf04c0c9dfc12e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.060430516
@@ -3640,7 +3640,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7188831271245834966, guid: fcf02e53604bf234abcf04c0c9dfc12e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

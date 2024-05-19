@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FixLeakEvent : MonoBehaviour, IHandleInteraction
 {
     [SerializeField] private Button fixLeakButton;
-    
+    [SerializeField] private GameObject leak;
     private PlayerStats playerStats;
 
     private void Start()
@@ -32,6 +32,7 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
             
         float newLeakValue = GameUIManager.instance.leak.value - playerStats.leakReduction;
         GameUIManager.updateLeak(newLeakValue > 0 ? newLeakValue : 0);
+        leak.SetActive(false);
     }
 
     public IEnumerator HandleEventInteraction()
@@ -71,6 +72,8 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
         {
             yield return null;
         }
+
+       
     }
 
     private void HandleInteraction()

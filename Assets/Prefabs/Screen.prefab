@@ -10260,6 +10260,7 @@ GameObject:
   - component: {fileID: 3747759993928160546}
   - component: {fileID: 60941596329396618}
   - component: {fileID: 4062133708910600250}
+  - component: {fileID: 5569309369123714514}
   m_Layer: 5
   m_Name: hole
   m_TagString: Untagged
@@ -10369,6 +10370,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5569309369123714514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388692183192683868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7ca800970a439087086f3a3835a2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixLeakButton: {fileID: 4062133708910600250}
+  leak: {fileID: 3235863372215368566}
 --- !u!1 &4438010111775272878
 GameObject:
   m_ObjectHideFlags: 0
@@ -15447,6 +15462,7 @@ GameObject:
   - component: {fileID: 6142640748416456458}
   - component: {fileID: 6351172999430641579}
   - component: {fileID: 5176412148761582363}
+  - component: {fileID: 5640670698568604397}
   m_Layer: 5
   m_Name: hole
   m_TagString: Untagged
@@ -15556,6 +15572,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5640670698568604397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461364977251161893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7ca800970a439087086f3a3835a2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixLeakButton: {fileID: 5176412148761582363}
+  leak: {fileID: 5922271532241027310}
 --- !u!1 &5602086830570299281
 GameObject:
   m_ObjectHideFlags: 0
@@ -15737,6 +15767,7 @@ GameObject:
   - component: {fileID: 6757305458942931422}
   - component: {fileID: 7920292062525269768}
   - component: {fileID: 3723081968660548601}
+  - component: {fileID: 9204820067826293781}
   m_Layer: 5
   m_Name: hole
   m_TagString: Untagged
@@ -15846,6 +15877,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9204820067826293781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545316752581843463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7ca800970a439087086f3a3835a2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixLeakButton: {fileID: 3723081968660548601}
+  leak: {fileID: 3103565553914727458}
 --- !u!1 &6658434264743768241
 GameObject:
   m_ObjectHideFlags: 0

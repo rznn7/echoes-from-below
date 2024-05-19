@@ -407,6 +407,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 801585933067646445, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
+      propertyPath: ticksound
+      value: 
+      objectReference: {fileID: 8300000, guid: 285c498281c15c54682ba20102d904c7, type: 3}
     - target: {fileID: 1232763791521658383, guid: 39d4842888a8dc94883947318937fc7f, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -478,10 +482,6 @@ PrefabInstance:
     - target: {fileID: 194768966713748884, guid: 8435fecfd72524749bb155f3c884d1c3, type: 3}
       propertyPath: m_Name
       value: Shipwreck
-      objectReference: {fileID: 0}
-    - target: {fileID: 3181221633860164604, guid: 8435fecfd72524749bb155f3c884d1c3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8415349928199198934, guid: 8435fecfd72524749bb155f3c884d1c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,10 +557,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 218261268368911803, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1851624578493355351, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

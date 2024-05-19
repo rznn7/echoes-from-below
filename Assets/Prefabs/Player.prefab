@@ -227,3 +227,5 @@ MonoBehaviour:
   powerToSubtract: 10
   oxygenToSubtract: 10
   scrapCount: 0
+  powerCostToRepair: 2
+  leakReduction: 20
