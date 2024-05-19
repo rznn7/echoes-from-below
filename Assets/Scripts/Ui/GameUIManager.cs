@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameUIManager : MonoBehaviour
 {
+    public GameOverTrigger gameOverTrigger;
+
     public ValueToSprite oxygen;
     public ValueToSprite power;
     public ValueToSprite bullets;
@@ -55,6 +57,11 @@ public class GameUIManager : MonoBehaviour
             instance.ss.shake(0.35f);
         }
         instance.leak.updateValue(val);
+
+        if (Mathf.Approximately(instance.leak.value, instance.leak.max))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.Leakage);
+        }
     }
 
     public static void UpdateScrap(int val)
@@ -65,6 +72,11 @@ public class GameUIManager : MonoBehaviour
     public static void UpdateOxygen(float val)
     {
         instance.oxygen.updateValue(val);
+
+        if (Mathf.Approximately(instance.oxygen.value, instance.oxygen.min))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.OutOfOxygen);
+        }
     }
 
     public static void UpdateBullets(float val)
@@ -75,6 +87,11 @@ public class GameUIManager : MonoBehaviour
     public static void UpdatePower(float val)
     {
         instance.power.updateValue(val);
+
+        if (Mathf.Approximately(instance.power.value, instance.power.min))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.OutOfPower);
+        }
     }
 
     public static int GetMove()
