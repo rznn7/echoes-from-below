@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour, IPopupMessageSender
 {
     public event Action<List<PopupMessage>, MessagePriority> AddMessagesToQueue;
-
+    public AudioClip shot;
     (float x, float y) _aim = (0f, 0f);
 
     List<PopupMessage> _popupFireReport;
@@ -24,7 +24,7 @@ public class PlayerFire : MonoBehaviour, IPopupMessageSender
                 new PopupMessage($"Torpedo fired at coordinates {{x:{targetCell.x};y:{targetCell.y}}}", "OK"));
 
             CheckForHit(targetCell);
-
+            AudioSource.PlayClipAtPoint(shot, Camera.main.transform.position, SettingsHolder.SFXvol);
             GameUIManager.instance.bullets.updateValue(currentBulletCount - 1);
         }
         else

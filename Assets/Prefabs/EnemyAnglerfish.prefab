@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7072318865626405534}
   - component: {fileID: 3385986572202096210}
   - component: {fileID: 5752736323367239738}
+  - component: {fileID: 6584974419199740140}
   m_Layer: 8
   m_Name: EnemyAnglerfish
   m_TagString: Enemy
@@ -104,6 +105,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6584974419199740140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175923927244350223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8710c206f24049798f1a905ff09a45bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5045459205285508127
 PrefabInstance:
   m_ObjectHideFlags: 0

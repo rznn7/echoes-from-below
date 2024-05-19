@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400441154403370203}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -344,6 +344,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playClip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerFire, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundAtPoint, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e2d8f7f79d69654e81d1c2236c92c9b, type: 3}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825484149857313148, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5115926139770431560, guid: 934eb76d3ccfd5c49976cb45bd087051, type: 3}
       propertyPath: m_Name
       value: largeButton
@@ -469,6 +521,26 @@ PrefabInstance:
     - target: {fileID: 8354743921318385996, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573671130849212476, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573671130849212476, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573671130849212476, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateFireHorizontalAim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573671130849212476, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerFire, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573671130849212476, guid: 801f0abdfecb611448de43160ac5d54e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -900,6 +972,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5515543546676475611}
     m_Modifications:
+    - target: {fileID: 1746722651446900069, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746722651446900069, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746722651446900069, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateFireVerticalAim
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746722651446900069, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerFire, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746722651446900069, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2943708015394513536, guid: fa19b0f5efb5bf94ba202a6f9ae501d5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
