@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameOverTrigger : MonoBehaviour
 {
-    [FormerlySerializedAs("duration")]
     [SerializeField]
     float fadeDuration = 4f;
 
