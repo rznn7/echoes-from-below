@@ -66,7 +66,9 @@ public class leakData : MonoBehaviour
         deactivated = new List<GameObject>(leaks);
         activated = new List<GameObject>();
     }
-
+    public int getActiveNumber() {
+        return activated.Count;    
+    }
     // Update is called once per frame
     void Update()
     {

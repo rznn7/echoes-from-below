@@ -8,11 +8,11 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
     [SerializeField] private Button fixLeakButton;
     [SerializeField] private GameObject leak;
     private PlayerStats playerStats;
-
+    private leakData ld;
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
-        
+        ld = FindObjectOfType<leakData>();
         fixLeakButton.onClick.AddListener(HandleInteraction);
     }
 
@@ -31,6 +31,12 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
         GameUIManager.UpdateScrap(playerStats.scrapCount);
             
         float newLeakValue = GameUIManager.instance.leak.value - playerStats.leakReduction;
+
+        if (ld.getActiveNumber() == 1) {
+            if (newLeakValue > 20) {
+                newLeakValue -= 10;
+            }
+        }
         GameUIManager.UpdateLeak(newLeakValue > 0 ? newLeakValue : 0);
         leak.SetActive(false);
     }
