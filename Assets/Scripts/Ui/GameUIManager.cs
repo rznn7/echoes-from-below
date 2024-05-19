@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class GameUIManager : MonoBehaviour
         go.onClick.AddListener(GlobalTimekeeper.Tick);
         toggleBubbles(false);
     }
+
     public static void toggleGoButton(bool a) {
         instance.go.interactable = a;
     }

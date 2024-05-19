@@ -55,9 +55,8 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
     
     private void DealDamage()
     {
-        //leak
-        GameUIManager.updateLeak(GameUIManager.instance.leak.value + Random.Range(30, 60));
-        Debug.Log(GameUIManager.instance.leak.value);
+        float leakIncrease = Random.Range(30, 60);
+        GameUIManager.updateLeak(GameUIManager.instance.leak.value + leakIncrease);
     }
 
     private void OnDrawGizmos()
