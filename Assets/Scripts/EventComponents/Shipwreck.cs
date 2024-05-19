@@ -24,7 +24,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
             eventHandled = true;
         };
 
-        if (Random.value < 0.25f)
+        if (Random.value < 0.33f)
         {
             int batteryAmountToCharge = Random.Range(10, 50);
             interaction.SendBatteryFromShipwreckInteractionMessage(batteryAmountToCharge, 
@@ -33,7 +33,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
                     GameUIManager.updatePower(GameUIManager.instance.power.value + batteryAmountToCharge);
                 }, onDeny);
         }
-        else if (Random.value < 0.5f)
+        else if (Random.value < 0.66f)
         {
             int oxygenAmountToRecover = Random.Range(10, 50);
             interaction.SendOxygenFromShipwreckInteractionMessage(oxygenAmountToRecover, 
