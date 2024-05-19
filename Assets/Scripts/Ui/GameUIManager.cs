@@ -102,7 +102,7 @@ public class GameUIManager : MonoBehaviour
     /// <returns></returns>
     public static void enemyDisp(int n)
     {
-        for (int i = 0; i < instance.encounters.Length; i++)
+        for (int i = 0; i < instance.enemies.Length; i++)
         {
             instance.enemies[i].SetActive(i == n);
         }
