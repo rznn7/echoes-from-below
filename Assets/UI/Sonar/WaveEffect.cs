@@ -14,6 +14,7 @@ public class WaveEffect : MonoBehaviour
     LineRenderer _lineRenderer;
     Coroutine _waveCoroutine;
     GameObject _currentWaveCollider;
+    public AudioClip sonar;
     void Start()
     {
         _lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -30,12 +31,16 @@ public class WaveEffect : MonoBehaviour
 
     public void StartWave()
     {
-        if (_waveCoroutine != null)
-        {
-            StopCoroutine(_waveCoroutine);
-            _lineRenderer.positionCount = 0;
+        if (GameUIManager.instance.power.value > 5) {
+            GameUIManager.UpdatePower(GameUIManager.instance.power.value - 5);
+            AudioSource.PlayClipAtPoint(sonar, Camera.main.transform.position, SettingsHolder.SFXvol);
+            if (_waveCoroutine != null)
+            {
+                StopCoroutine(_waveCoroutine);
+                _lineRenderer.positionCount = 0;
+            }
+            _waveCoroutine = StartCoroutine(WaveAnimation());
         }
-        _waveCoroutine = StartCoroutine(WaveAnimation());
     }
 
     IEnumerator WaveAnimation()

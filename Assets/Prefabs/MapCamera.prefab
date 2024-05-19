@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8841177404337282456}
   - component: {fileID: 4139021117392682628}
-  - component: {fileID: 7188831271245834966}
-  - component: {fileID: 5166568814384902404}
   - component: {fileID: 8423006375558141627}
   - component: {fileID: 7515618143548430667}
   - component: {fileID: 8968296571007851907}
@@ -89,35 +87,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &7188831271245834966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857413937009564358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb51709d3d48fc47bb63a0429139f88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ticksound: {fileID: 0}
-  sounds: []
-  dotick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5166568814384902404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857413937009564358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee6d34697914ce41ba9fad3e08f2b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8423006375558141627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +108,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 8841177404337282456}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
