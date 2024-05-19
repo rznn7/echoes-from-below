@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             GameUIManager.toggleBubbles(true);
             Vector3 dir = directions[movC];
             startpos = this.transform.position;
-            bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7), QueryTriggerInteraction.Collide);
+            bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7)|(1<<8), QueryTriggerInteraction.Collide);
             endpos = startpos + (new Vector3(dir.x, ylev, dir.y) * ((hits) ? 0 : 1));
             startrot = this.transform.eulerAngles.y;
             endrot = startrot + dir.z;
