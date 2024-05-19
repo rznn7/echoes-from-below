@@ -9,8 +9,8 @@ public class SubmarineTest : MonoBehaviour
 
     private void Start()
     {
-        GameUIManager.initPower(GameUIManager.instance.power.max);
-        GameUIManager.initOxygen(GameUIManager.instance.oxygen.max);
+        GameUIManager.InitPower(GameUIManager.instance.power.max);
+        GameUIManager.InitOxygen(GameUIManager.instance.oxygen.max);
 
         subtractPowerButton.onClick.AddListener(SubtractPower);
         subtractOxygenButton.onClick.AddListener(SubtractOxygen);
@@ -24,11 +24,11 @@ public class SubmarineTest : MonoBehaviour
     
     private void SubtractPower()
     {
-        GameUIManager.updatePower(GameUIManager.instance.power.value - 10);
+        GameUIManager.UpdatePower(GameUIManager.instance.power.value - 10);
     }
     
     private void SubtractOxygen()
     {
-        GameUIManager.updateOxygen(GameUIManager.instance.oxygen.value - 10);
+        GameUIManager.UpdateOxygen(GameUIManager.instance.oxygen.value - 10);
     }
 }

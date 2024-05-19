@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         ylev = transform.position.y;
         inTimeout = false;
         GlobalTimekeeper.inst.dotick.AddListener(onTick);
-        GameUIManager.toggleBubbles(false);
+        GameUIManager.ToggleBubbles(false);
     }
 
     // Update is called once per frame
@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
             if (t >= timeout)
             {
                 t = 0;
-                GameUIManager.toggleGoButton(true);
-                GameUIManager.toggleBubbles(false);
+                GameUIManager.ToggleGoButton(true);
+                GameUIManager.ToggleBubbles(false);
                 inTimeout = false;
                 this.transform.position = endpos;
                 this.transform.eulerAngles = new Vector3(0, endrot, 0);
@@ -61,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
     void onTick()
     {
-        GameUIManager.toggleGoButton(false);
-        int movC = GameUIManager.getMove();
+        GameUIManager.ToggleGoButton(false);
+        int movC = GameUIManager.GetMove();
         if (movC != -1)
         {
-            GameUIManager.toggleBubbles(true);
+            GameUIManager.ToggleBubbles(true);
             Vector3 dir = directions[movC];
             startpos = this.transform.position;
             bool hits = Physics.Linecast(startpos, startpos + new Vector3(dir.x, ylev, dir.y), (1 << 7)|(1<<8), QueryTriggerInteraction.Collide);
