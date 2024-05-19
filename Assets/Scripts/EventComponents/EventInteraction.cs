@@ -155,13 +155,13 @@ public class EventInteraction : MonoBehaviour
     #endregion
     
     #region Sea Mine
-    public void SendSeaMineInteractionMessage(bool explode, Action onAccept, Action onDeny)
+    public void SendSeaMineInteractionMessage(bool explode, int scrapToCollect, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
             "While navigating your submarine, you find that you're in proximity to a sea mine.",
             explode
                 ? "The mine explodes! Your submarine has taken damage!"
-                : "You get closer, but nothing happens. Perhaps you've gotten lucky this time.",
+                : $"You get closer, but nothing happens. You're able to obtain {scrapToCollect} scrap.",
             "Accept",
             "Deny",
             "Close"

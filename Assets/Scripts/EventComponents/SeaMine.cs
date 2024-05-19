@@ -42,7 +42,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         if (explode)
         {
             OnMineExploded?.Invoke();
-            interaction.SendSeaMineInteractionMessage(true, 
+            interaction.SendSeaMineInteractionMessage(true, 0,
                 () => {
                     onAccept.Invoke();
                     DealDamage();
@@ -50,7 +50,17 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         }
         else
         {
-            interaction.SendSeaMineInteractionMessage(false, onAccept, onDeny);
+            int scrapToCollect = Random.Range(1, 4);
+            interaction.SendSeaMineInteractionMessage(false, scrapToCollect,
+                () => {
+                    onAccept.Invoke();
+                    PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+                    if (playerStats != null)
+                    {
+                        playerStats.scrapCount += scrapToCollect;
+                        GameUIManager.updateScrap(playerStats.scrapCount);
+                    }
+                }, onDeny);
         }
         
         while (!eventHandled)
