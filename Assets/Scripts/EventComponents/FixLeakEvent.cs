@@ -68,11 +68,11 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
 
         bool enoughResources = GameUIManager.instance.power.value >= playerStats.powerCostToRepair && playerStats.scrapCount >= 1;
         
-        float leakValue = currentLeakValue - playerStats.leakReduction;
-        if (leakValue < 0)
-            leakValue = 0;
+        float modifiedLeakValue = currentLeakValue - playerStats.leakReduction;
+        if (modifiedLeakValue < 0)
+            modifiedLeakValue = 0;
         
-        interaction.SendFixLeakInteractionMessage(enoughResources, Mathf.RoundToInt(leakValue), onAccept, onDeny);
+        interaction.SendFixLeakInteractionMessage(enoughResources, currentLeakValue, Mathf.RoundToInt(modifiedLeakValue), onAccept, onDeny);
         
         while (!eventHandled)
         {
