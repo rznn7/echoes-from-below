@@ -183,12 +183,12 @@ public class EventInteraction : MonoBehaviour
     
     #region Fix Leak
 
-    public void SendFixLeakInteractionMessage(bool enoughResources, float leakValue, Action onAccept, Action onDeny)
+    public void SendFixLeakInteractionMessage(bool enoughResources, float initialLeakValue, float newLeakValue, Action onAccept, Action onDeny)
     {
         var interaction = new TextualInteraction(
-            $"Your submarine may be leaking. The current leak percentage is {leakValue}%. A percentage above 20% will cause the leak to accumulate after every move." +
+            $"Your submarine may be leaking. The current leak percentage is {initialLeakValue}%. A percentage above 20% will cause the leak to accumulate after every move." +
             $" Fixing it will require 2 power and 1 scrap. Do you want to fix it?",
-            enoughResources ? $"You spend some time fixing the leak. That should do the trick for now. The leak percentage is reduced to {leakValue}%." 
+            enoughResources ? $"You spend some time fixing the leak. That should do the trick for now. The leak percentage is reduced to {newLeakValue}%." 
                 : "Not enough resources to fix the leak.",
             "Accept",
             "Deny",

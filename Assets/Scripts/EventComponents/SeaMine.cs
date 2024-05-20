@@ -5,11 +5,24 @@ using Random = UnityEngine.Random;
 
 public class SeaMine : MonoBehaviour, IHandleInteraction
 {
-    public event Action OnMineExploded;
     private static bool firstMineEncounter = true;
+    
+    private bool interactable = true;
+
+    private void Update()
+    {
+        if (PlayerOnMine())
+        {
+            Explode();
+        }
+    }
+
+    public bool Interactable => interactable;
     
     public IEnumerator HandleEventInteraction()
     {
+        if (!interactable) yield break;
+        
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
@@ -41,11 +54,11 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
 
         if (explode)
         {
-            OnMineExploded?.Invoke();
             interaction.SendSeaMineInteractionMessage(true, 0,
                 () => {
                     onAccept.Invoke();
                     DealDamage();
+                    gameObject.SetActive(false);
                 }, onDeny);
         }
         else
@@ -59,6 +72,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
                     {
                         playerStats.scrapCount += scrapToCollect;
                         GameUIManager.updateScrap(playerStats.scrapCount);
+                        gameObject.SetActive(false);
                     }
                 }, onDeny);
         }
@@ -69,7 +83,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         }
 
         GameUIManager.eventDisp(-1);
-        gameObject.SetActive(false);
+        interactable = false;
     }
     
     private void DealDamage()
@@ -77,10 +91,38 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         float leakIncrease = Random.Range(30, 60);
         GameUIManager.updateLeak(GameUIManager.instance.leak.value + leakIncrease);
     }
+    
+    public void Explode()
+    {
+        DealDamage();
+        gameObject.SetActive(false);
+    }
+    
+    private bool PlayerOnMine()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.rotation);
+        
+        foreach (Collider col in colliders)
+        {
+            if (col.CompareTag("Player") && !interactable)
+            {
+                PlayerMovement player = col.GetComponent<PlayerMovement>();
+                if (player.transform.position == transform.position)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 1));
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(0.5f, 0.5f, 0.5f));
     }
 }
