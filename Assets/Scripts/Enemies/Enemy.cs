@@ -254,4 +254,9 @@ public class Enemy : MonoBehaviour
         }
         return true;
     }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
+    }
 }
