@@ -66,12 +66,12 @@ public class GameUIManager : MonoBehaviour
 
     public static void UpdateScrap(int val)
     {
-        instance.scrapDisp.text = ":" + val.ToString(fmt);
+        instance.scrapDisp.text = ": " + val.ToString(fmt);
     }
 
     public static void UpdateOxygen(float val)
     {
-        instance.oxygen.updateValue(val);
+        instance.oxygen.updateValue(val, "oxygen canister");
 
         if (Mathf.Approximately(instance.oxygen.value, instance.oxygen.min))
         {
@@ -81,12 +81,12 @@ public class GameUIManager : MonoBehaviour
 
     public static void UpdateBullets(float val)
     {
-        instance.bullets.updateValue(val);
+        instance.bullets.updateValue(val, "bullet");
     }
 
     public static void UpdatePower(float val)
     {
-        instance.power.updateValue(val);
+        instance.power.updateValue(val, "power cell");
 
         if (Mathf.Approximately(instance.power.value, instance.power.min))
         {

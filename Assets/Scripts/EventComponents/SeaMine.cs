@@ -8,7 +8,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
     private static bool firstMineEncounter = true;
     
     private bool interactable = true;
-
+    static PlayerStats playerStats;
     private void Update()
     {
         if (PlayerOnMine())
@@ -16,18 +16,21 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
             Explode();
         }
     }
-
+    
     public bool Interactable => interactable;
     
     public IEnumerator HandleEventInteraction()
     {
+
         if (!interactable) yield break;
         
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
         GameUIManager.EventDisp(0);
-
+        if (playerStats == null) {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         bool eventHandled = false;
         
         Action onAccept = () => 
@@ -67,7 +70,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
             interaction.SendSeaMineInteractionMessage(false, scrapToCollect,
                 () => {
                     onAccept.Invoke();
-                    PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+                    
                     if (playerStats != null)
                     {
                         playerStats.scrapCount += scrapToCollect;

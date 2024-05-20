@@ -25,7 +25,7 @@ public class PlayerFire : MonoBehaviour, IPopupMessageSender
 
             CheckForHit(targetCell);
             AudioSource.PlayClipAtPoint(shot, Camera.main.transform.position, SettingsHolder.SFXvol);
-            GameUIManager.instance.bullets.updateValue(currentBulletCount - 1);
+            GameUIManager.instance.bullets.updateValue(currentBulletCount - 1,"bullet");
         }
         else
         {

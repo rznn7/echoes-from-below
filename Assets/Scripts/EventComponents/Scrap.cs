@@ -5,8 +5,12 @@ using Random = UnityEngine.Random;
 
 public class Scrap : MonoBehaviour, IHandleInteraction 
 {
+    static PlayerStats ps;
     public IEnumerator HandleEventInteraction()
     {
+        if (ps == null) {
+            ps = FindObjectOfType<PlayerStats>();
+        }
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
@@ -28,7 +32,8 @@ public class Scrap : MonoBehaviour, IHandleInteraction
         interaction.SendScrapInteractionMessage(scrapToCollect, 
             () => {
                 onAccept.Invoke();
-                GameUIManager.UpdateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
+                ps.scrapCount += scrapToCollect;
+                GameUIManager.UpdateScrap(ps.scrapCount);
             }, onDeny);
         
         while (!eventHandled)

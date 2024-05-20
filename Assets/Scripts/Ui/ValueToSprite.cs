@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ValueToSprite : MonoBehaviour
+public class ValueToSprite : MonoBehaviour, IPopupMessageSender
 {
     public float max;
     public float min;
@@ -10,12 +11,21 @@ public class ValueToSprite : MonoBehaviour
     public Sprite[] sprites;
     public Image img;
     private float slabSize;
+
+    public event Action<List<PopupMessage>, MessagePriority> AddMessagesToQueue;
+    List<PopupMessage> _popupMessage;
     private void Start()
     {
         recalculateSlabSize();
         updateDisplay();
     }
-    public void updateValue(float a) {
+    public void updateValue(float a,string item) {
+
+        if (a > max) {
+            _popupMessage = new List<PopupMessage>();
+            _popupMessage.Add(new PopupMessage($"Dropped {(a-max)} {item}s since your {item} storage is full.", "OK"));
+            AddMessagesToQueue?.Invoke(_popupMessage, MessagePriority.Medium);
+        }
         value = Mathf.Clamp(a, min, max);
         updateDisplay();
     }

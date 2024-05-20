@@ -23,32 +23,23 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
         {
             eventHandled = true;
         };
-
-        if (Random.value < 0.33f)
+        float r = Random.value;
+        if (r < 0.33f)
         {
-            int batteryAmountToCharge = Random.Range(10, 50);
+            int batteryAmountToCharge = Random.Range(20, 50);
             interaction.SendBatteryFromShipwreckInteractionMessage(batteryAmountToCharge, 
                 () => {
                     onAccept.Invoke();
                     GameUIManager.UpdatePower(GameUIManager.instance.power.value + batteryAmountToCharge);
                 }, onDeny);
         }
-        else if (Random.value < 0.66f)
+        else if (r < 0.66f)
         {
             int oxygenAmountToRecover = Random.Range(10, 50);
             interaction.SendOxygenFromShipwreckInteractionMessage(oxygenAmountToRecover, 
                 () => {
                     onAccept.Invoke();
                     GameUIManager.UpdateOxygen(GameUIManager.instance.oxygen.value + oxygenAmountToRecover);
-                }, onDeny);
-        }
-        else if (Random.value < 0.75f)
-        {
-            int scrapToCollect = Random.Range(1, 4);
-            interaction.SendScrapFromShipwreckInteractionMessage(scrapToCollect, 
-                () => {
-                    onAccept.Invoke();
-                    GameUIManager.UpdateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
                 }, onDeny);
         }
         else
