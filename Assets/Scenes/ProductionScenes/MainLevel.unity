@@ -1918,6 +1918,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinCondition
       objectReference: {fileID: 0}
+    - target: {fileID: 337988589859913425, guid: d81cd0cd00af0794cb8cdaab2848a7ab, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622406564051860584, guid: d81cd0cd00af0794cb8cdaab2848a7ab, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8303876446454208468, guid: d81cd0cd00af0794cb8cdaab2848a7ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -2704,7 +2712,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 218261268368911803, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1851624578493355351, guid: 89cb4b62c73f5354f82c8231040fc3ef, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4025,7 +4033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7072318865626405534, guid: 48ebb20bda2780342a0b822865be8b23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072318865626405534, guid: 48ebb20bda2780342a0b822865be8b23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4033,7 +4041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7072318865626405534, guid: 48ebb20bda2780342a0b822865be8b23, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072318865626405534, guid: 48ebb20bda2780342a0b822865be8b23, type: 3}
       propertyPath: m_LocalRotation.w
