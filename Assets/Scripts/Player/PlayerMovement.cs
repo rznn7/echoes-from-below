@@ -94,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DetectEventAfterMove()
     {
+        GameUIManager.EnemyDisp(-1);
+        GameUIManager.EventDisp(-1);
         if (Physics.Raycast(transform.position, transform.forward, out var hit, 1f))
         {
             if (hit.collider.CompareTag("Event"))
@@ -116,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        GameUIManager.EnemyDisp(-1);
+    
         yield return null;
     }
 
