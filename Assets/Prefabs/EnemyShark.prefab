@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615f20471a752b64582cab22d62d0f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipping: 10
+  clipping: 3
   stamina: 5
   movcurve:
     serializedVersion: 2
@@ -82,7 +82,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  damageRange: {x: 10, y: 20}
+  damageRange: {x: 10, y: 15}
   enemyIndex: 0
 --- !u!65 &1903683521228639076
 BoxCollider:
