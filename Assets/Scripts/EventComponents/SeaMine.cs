@@ -72,6 +72,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
                     {
                         playerStats.scrapCount += scrapToCollect;
                         GameUIManager.UpdateScrap(playerStats.scrapCount);
+                        gameObject.SetActive(false);
                     }
                 }, onDeny);
         }
@@ -82,7 +83,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         }
         
         GameUIManager.EventDisp(-1);
-        gameObject.SetActive(false);
+        interactable = false;
     }
     
     private void DealDamage()
