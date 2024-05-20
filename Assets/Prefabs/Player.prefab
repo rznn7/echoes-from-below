@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ee572cc0ae4984a7279830c0df1308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerToSubtract: 10
-  oxygenToSubtract: 10
+  powerToSubtract: 3
+  oxygenToSubtract: 2
   scrapCount: 0
   powerCostToRepair: 2
   leakReduction: 20
