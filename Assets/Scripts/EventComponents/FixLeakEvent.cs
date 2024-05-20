@@ -78,8 +78,6 @@ public class FixLeakEvent : MonoBehaviour, IHandleInteraction
         {
             yield return null;
         }
-
-       
     }
 
     private void HandleInteraction()
