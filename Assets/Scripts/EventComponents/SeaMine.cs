@@ -90,12 +90,27 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
     {
         float leakIncrease = Random.Range(30, 60);
         GameUIManager.UpdateLeak(GameUIManager.instance.leak.value + leakIncrease);
+        
+        KillEnemiesInRange();
     }
     
     public void Explode()
     {
         DealDamage();
         gameObject.SetActive(false);
+    }
+    
+    private void KillEnemiesInRange()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(3f, 3f, 3f), transform.rotation);
+        
+        foreach (Collider col in colliders)
+        {
+            if (col.CompareTag("Enemy"))
+            {
+                col.GetComponent<Enemy>().Kill();
+            }
+        }
     }
     
     private bool PlayerOnMine()
@@ -124,5 +139,8 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(0.5f, 0.5f, 0.5f));
+        
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(3f, 3f, 3f));
     }
 }
