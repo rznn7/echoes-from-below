@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class GameWinTrigger : MonoBehaviour
+public class GameWinTrigger : MonoBehaviour, IHandleInteraction
 {
-    [FormerlySerializedAs("duration")]
     [SerializeField]
     float fadeDuration = 4f;
 
@@ -50,5 +49,11 @@ public class GameWinTrigger : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         Destroy(canvasObject);
+    }
+
+    public IEnumerator HandleEventInteraction()
+    {
+        TriggerGameWin();
+        yield break;
     }
 }
