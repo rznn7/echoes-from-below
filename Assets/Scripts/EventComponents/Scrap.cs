@@ -10,7 +10,7 @@ public class Scrap : MonoBehaviour, IHandleInteraction
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
-        GameUIManager.eventDisp(3);
+        GameUIManager.EventDisp(3);
 
         bool eventHandled = false;
         
@@ -28,7 +28,7 @@ public class Scrap : MonoBehaviour, IHandleInteraction
         interaction.SendScrapInteractionMessage(scrapToCollect, 
             () => {
                 onAccept.Invoke();
-                GameUIManager.updateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
+                GameUIManager.UpdateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
             }, onDeny);
         
         while (!eventHandled)
@@ -36,7 +36,7 @@ public class Scrap : MonoBehaviour, IHandleInteraction
             yield return null;
         }
 
-        GameUIManager.eventDisp(-1);
+        GameUIManager.EventDisp(-1);
         gameObject.SetActive(false);
     }
     

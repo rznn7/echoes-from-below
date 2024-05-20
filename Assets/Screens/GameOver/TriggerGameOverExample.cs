@@ -13,6 +13,6 @@ public class TriggerGameOverExample : MonoBehaviour
     IEnumerator TriggerGameOverWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameOverTrigger.TriggerGameOver(GameOverType.Leakage);
+        gameOverTrigger.TriggerGameOver(GameOverType.OutOfPower);
     }
 }

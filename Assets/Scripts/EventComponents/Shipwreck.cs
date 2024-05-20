@@ -10,7 +10,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
-        GameUIManager.eventDisp(1);
+        GameUIManager.EventDisp(1);
 
         bool eventHandled = false;
 
@@ -24,22 +24,22 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
             eventHandled = true;
         };
 
-        if (Random.value < 0.25f)
+        if (Random.value < 0.33f)
         {
             int batteryAmountToCharge = Random.Range(10, 50);
             interaction.SendBatteryFromShipwreckInteractionMessage(batteryAmountToCharge, 
                 () => {
                     onAccept.Invoke();
-                    GameUIManager.updatePower(GameUIManager.instance.power.value + batteryAmountToCharge);
+                    GameUIManager.UpdatePower(GameUIManager.instance.power.value + batteryAmountToCharge);
                 }, onDeny);
         }
-        else if (Random.value < 0.5f)
+        else if (Random.value < 0.66f)
         {
             int oxygenAmountToRecover = Random.Range(10, 50);
             interaction.SendOxygenFromShipwreckInteractionMessage(oxygenAmountToRecover, 
                 () => {
                     onAccept.Invoke();
-                    GameUIManager.updateOxygen(GameUIManager.instance.oxygen.value + oxygenAmountToRecover);
+                    GameUIManager.UpdateOxygen(GameUIManager.instance.oxygen.value + oxygenAmountToRecover);
                 }, onDeny);
         }
         else if (Random.value < 0.75f)
@@ -48,7 +48,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
             interaction.SendScrapFromShipwreckInteractionMessage(scrapToCollect, 
                 () => {
                     onAccept.Invoke();
-                    GameUIManager.updateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
+                    GameUIManager.UpdateScrap(FindObjectOfType<PlayerStats>().scrapCount + scrapToCollect);
                 }, onDeny);
         }
         else
@@ -57,7 +57,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
             interaction.SendAmmoFromShipwreckInteractionMessage(ammoToCollect, 
                 () => {
                     onAccept.Invoke();
-                    GameUIManager.updateBullets(GameUIManager.instance.bullets.value + ammoToCollect);
+                    GameUIManager.UpdateBullets(GameUIManager.instance.bullets.value + ammoToCollect);
                 }, onDeny);
         }
 
@@ -66,7 +66,7 @@ public class Shipwreck : MonoBehaviour, IHandleInteraction
             yield return null;
         }
 
-        GameUIManager.eventDisp(-1);
+        GameUIManager.EventDisp(-1);
         gameObject.SetActive(false);
     }
 

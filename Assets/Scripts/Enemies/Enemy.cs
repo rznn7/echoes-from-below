@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private GameObject Player;
     private PlayerMovement playermovement;
+    private PlayerStats playerStats;
     public float clipping;
     private float t = 0;
     private float timeout;
@@ -17,6 +18,10 @@ public class Enemy : MonoBehaviour
     public AnimationCurve movcurve;
     private bool insight;
     private Vector3 lastknown;
+
+    public Vector2 damageRange;
+    public int enemyIndex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,7 +134,8 @@ public class Enemy : MonoBehaviour
                     else
                     {
                         //what to do when enemy touches player
-
+                        float leakIncrease = Random.Range(damageRange.x,damageRange.y);
+                        GameUIManager.UpdateLeak(GameUIManager.instance.leak.value + leakIncrease);
                     }
                 }
                 else

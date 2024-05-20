@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class GameUIManager : MonoBehaviour
 {
+    public GameOverTrigger gameOverTrigger;
+
     public ValueToSprite oxygen;
     public ValueToSprite power;
     public ValueToSprite bullets;
@@ -19,51 +22,85 @@ public class GameUIManager : MonoBehaviour
     public Button go;
     public TMP_Text scrapDisp;
     static string fmt = "00";
+    public ScreenShake ss;
 
     private void Start()
     {
         go.onClick.AddListener(GlobalTimekeeper.Tick);
-        toggleBubbles(false);
+        ToggleBubbles(false);
     }
 
-    public static void toggleGoButton(bool a) {
+    public static void ToggleGoButton(bool a)
+    {
         instance.go.interactable = a;
     }
-    public static void initOxygen(float maxCapacity) {
+
+    public static void InitOxygen(float maxCapacity)
+    {
         instance.oxygen.max = maxCapacity;
     }
-    public static void initPower(float maxCapacity)
+
+    public static void InitPower(float maxCapacity)
     {
         instance.power.max = maxCapacity;
     }
-    public static void initLeak(float maxCapacity)
+
+    public static void InitLeak(float maxCapacity)
     {
         instance.leak.max = maxCapacity;
     }
-    public static void updateLeak(float val)
+
+    public static void UpdateLeak(float val)
     {
+        if (val > instance.leak.value)
+        {
+            instance.ss.shake(0.35f);
+        }
         instance.leak.updateValue(val);
+
+        if (Mathf.Approximately(instance.leak.value, instance.leak.max))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.Leakage);
+        }
     }
-    public static void updateScrap(int val) {
+
+    public static void UpdateScrap(int val)
+    {
         instance.scrapDisp.text = ":" + val.ToString(fmt);
     }
-    public static void updateOxygen(float val)
+
+    public static void UpdateOxygen(float val)
     {
         instance.oxygen.updateValue(val);
+
+        if (Mathf.Approximately(instance.oxygen.value, instance.oxygen.min))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.OutOfOxygen);
+        }
     }
-    public static void updateBullets(float val)
+
+    public static void UpdateBullets(float val)
     {
         instance.bullets.updateValue(val);
     }
-    public static void updatePower(float val)
+
+    public static void UpdatePower(float val)
     {
         instance.power.updateValue(val);
+
+        if (Mathf.Approximately(instance.power.value, instance.power.min))
+        {
+            instance.gameOverTrigger.TriggerGameOver(GameOverType.OutOfPower);
+        }
     }
-    public static int getMove()
+
+    public static int GetMove()
     {
         return instance.moveControls.movchoice;
     }
-    public static void toggleBubbles(bool s) {
+
+    public static void ToggleBubbles(bool s)
+    {
         ParticleSystem.EmissionModule em;
         em = instance.bubbles[0].emission;
         em.enabled = s;
@@ -72,11 +109,14 @@ public class GameUIManager : MonoBehaviour
         em = instance.bubbles[2].emission;
         em.enabled = s;
     }
-    public static void tickReset() {
+
+    public static void TickReset()
+    {
         instance.moveControls.reset();
-        eventDisp(-1);
-        enemyDisp(-1);
+        EventDisp(-1);
+        EnemyDisp(-1);
     }
+
     /// <summary>
     /// -1 : clear
     /// 0 : sea mine
@@ -85,8 +125,10 @@ public class GameUIManager : MonoBehaviour
     /// 3 : scrap
     /// </summary>
     /// <returns></returns>
-    public static void eventDisp(int n) {
-        for (int i = 0; i < instance.encounters.Length; i++) {
+    public static void EventDisp(int n)
+    {
+        for (int i = 0; i < instance.encounters.Length; i++)
+        {
             instance.encounters[i].SetActive(i == n);
         }
     }
@@ -97,13 +139,14 @@ public class GameUIManager : MonoBehaviour
     /// 1 : anglerfish
     /// </summary>
     /// <returns></returns>
-    public static void enemyDisp(int n)
+    public static void EnemyDisp(int n)
     {
-        for (int i = 0; i < instance.encounters.Length; i++)
+        for (int i = 0; i < instance.enemies.Length; i++)
         {
             instance.enemies[i].SetActive(i == n);
         }
     }
+
     // Start is called before the first frame update
     void Awake()
     {

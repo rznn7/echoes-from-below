@@ -6,12 +6,18 @@ public class DisplayGrid : MonoBehaviour
     public float cellSize = 1.0f;
     public Color gridColor = Color.white;
     public float lineWidth = 0.025f;
-
+    public PlayerMovement pm;
+    public GameObject gridParent;
+    public GameObject gridl;
     void Start()
     {
         GenerateGrid();
+        pm.OnPlayerMove += zeroGrid;
     }
 
+    void zeroGrid() {
+        gridParent.transform.position = pm.endpos;
+    }
     void GenerateGrid()
     {
         var halfCellSize = cellSize / 2;
@@ -33,15 +39,11 @@ public class DisplayGrid : MonoBehaviour
 
     void CreateLine(Vector3 start, Vector3 end)
     {
-        var line = new GameObject("GridLine")
-        {
-            transform =
-            {
-                parent = transform
-            }
-        };
+        var line = Instantiate(gridl);
+        line.transform.parent = gridParent.transform;
 
-        var lr = line.AddComponent<LineRenderer>();
+        var lr = line.GetComponent<LineRenderer>();
+        lr.useWorldSpace = false;
         lr.startWidth = lineWidth;
         lr.endWidth = lineWidth;
         lr.material = new Material(Shader.Find("Sprites/Default"));

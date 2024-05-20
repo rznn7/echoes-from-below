@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8547524601290596317}
   - component: {fileID: 5732294522601457036}
   - component: {fileID: 5642527030798065171}
+  - component: {fileID: 7904599686990338164}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -229,3 +230,16 @@ MonoBehaviour:
   scrapCount: 0
   powerCostToRepair: 2
   leakReduction: 20
+--- !u!114 &7904599686990338164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252683456872365855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74eafe964d9e4743a703bdc8a098fe60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shot: {fileID: 8300000, guid: fdd72a2b427d40c40aa6f615e6a3c2c1, type: 3}

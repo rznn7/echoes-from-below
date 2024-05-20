@@ -30,7 +30,12 @@ public class ValueToSprite : MonoBehaviour
         }
         else
         {
+            if (value < 0) { value = 0; }
+            if (value > max) { value =max; }
+
             int number = Mathf.FloorToInt(value / slabSize);
+            print(number);
+            print(this.gameObject.name);
             img.sprite = sprites[number];
         }
     }
