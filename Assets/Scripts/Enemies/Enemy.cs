@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
                     {
                         //what to do when enemy touches player
                         float leakIncrease = Random.Range(damageRange.x,damageRange.y);
-                        GameUIManager.updateLeak(GameUIManager.instance.leak.value + leakIncrease);
+                        GameUIManager.UpdateLeak(GameUIManager.instance.leak.value + leakIncrease);
                     }
                 }
                 else

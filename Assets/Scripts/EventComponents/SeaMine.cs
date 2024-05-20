@@ -26,7 +26,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         EventInteraction interaction = FindObjectOfType<EventInteraction>();
         if (interaction == null) yield break;
         
-        GameUIManager.eventDisp(0);
+        GameUIManager.EventDisp(0);
 
         bool eventHandled = false;
         
@@ -71,8 +71,7 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
                     if (playerStats != null)
                     {
                         playerStats.scrapCount += scrapToCollect;
-                        GameUIManager.updateScrap(playerStats.scrapCount);
-                        gameObject.SetActive(false);
+                        GameUIManager.UpdateScrap(playerStats.scrapCount);
                     }
                 }, onDeny);
         }
@@ -81,15 +80,15 @@ public class SeaMine : MonoBehaviour, IHandleInteraction
         {
             yield return null;
         }
-
-        GameUIManager.eventDisp(-1);
-        interactable = false;
+        
+        GameUIManager.EventDisp(-1);
+        gameObject.SetActive(false);
     }
     
     private void DealDamage()
     {
         float leakIncrease = Random.Range(30, 60);
-        GameUIManager.updateLeak(GameUIManager.instance.leak.value + leakIncrease);
+        GameUIManager.UpdateLeak(GameUIManager.instance.leak.value + leakIncrease);
     }
     
     public void Explode()

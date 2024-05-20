@@ -6,9 +6,7 @@ using UnityEngine;
 public class PopupManager : MonoBehaviour
 {
     public event Action MessageReceived;
-    public event Action HighPriorityMessageReceived;
-    public event Action NoMoreHighPriorityMessage;
-    public event Action NoMoreMediumPriorityMessage;
+    public event Action NoMoreMessageInQueue;
 
     PopupUIElement _popupUIElement;
 
@@ -65,16 +63,15 @@ public class PopupManager : MonoBehaviour
         if (priority == MessagePriority.High)
         {
             _queuesOfHighPriorityMessagesQueues.Enqueue(messageQueue);
-            HighPriorityMessageReceived?.Invoke();
         }
         else
         {
             _queuesOfMediumPriorityMessagesQueues.Enqueue(messageQueue);
-            MessageReceived?.Invoke();
         }
+        MessageReceived?.Invoke();
     }
 
-    void OnPopupActivated()
+    public void OnPopupActivated()
     {
         if (_currentQueue == null)
         {
@@ -87,7 +84,7 @@ public class PopupManager : MonoBehaviour
     void OnPopupClosed()
     {
         ProcessNextMessage();
-        SendNoMoreMessageEvents();
+        SendNoMoreMessageEventsIfQueuesEmpty();
     }
 
     void ProcessNextQueue()
@@ -121,16 +118,11 @@ public class PopupManager : MonoBehaviour
         }
     }
 
-    void SendNoMoreMessageEvents()
+    void SendNoMoreMessageEventsIfQueuesEmpty()
     {
-        if (_queuesOfMediumPriorityMessagesQueues.Count == 0)
+        if (_queuesOfHighPriorityMessagesQueues.Count == 0 && _queuesOfMediumPriorityMessagesQueues.Count == 0)
         {
-            NoMoreMediumPriorityMessage?.Invoke();
-        }
-
-        if (_queuesOfHighPriorityMessagesQueues.Count == 0)
-        {
-            NoMoreHighPriorityMessage?.Invoke();
+            NoMoreMessageInQueue?.Invoke();
         }
     }
 }

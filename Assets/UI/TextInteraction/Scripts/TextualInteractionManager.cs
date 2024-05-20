@@ -13,7 +13,7 @@ public class TextualInteractionManager : MonoBehaviour
 
     Subject<bool> _interactionSubject;
 
-    void Awake()
+    void Start()
     {
         textualInteractionStartUIElement.AnswerInteraction += OnInteractionAnswered;
         textualInteractionEndUIElement.EndInteraction += OnInteractionEnded;
